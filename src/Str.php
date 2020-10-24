@@ -47,7 +47,7 @@ class Str
 
     public const WHITESPACE_MASK = " \t\n\r\0\x0B";
 
-    public const ALPHA = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYXZZ';
+    public const ALPHA = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYXZ';
     public const NUMERIC = '0123456789';
     public const ALPHANUMERIC = self::ALPHA.self::NUMERIC;
 
@@ -138,10 +138,10 @@ class Str
      * @param string $string The input string.
      * @return string The camelCase string.
      */
-    public static function camelCase(string $string): string
+    public static function camel(string $string): string
     {
         return lcfirst(
-            static::pascalCase($string)
+            static::pascal($string)
         );
     }
 
@@ -278,7 +278,7 @@ class Str
      * @param string $string The input string.
      * @return string The kebab-case string.
      */
-    public static function kebabCase(string $string): string
+    public static function kebab(string $string): string
     {
         return static::slug($string, '-');
     }
@@ -375,7 +375,7 @@ class Str
      * @param string $string The input string.
      * @return string The PascalCase string.
      */
-    public static function pascalCase(string $string): string
+    public static function pascal(string $string): string
     {
         return static::replace(
             static::title(
@@ -586,7 +586,7 @@ class Str
      * @param string $string The input string.
      * @return string The snake_case string.
      */
-    public static function snakeCase(string $string): string
+    public static function snake(string $string): string
     {
         return static::slug($string);
     }

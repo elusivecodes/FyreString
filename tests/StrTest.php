@@ -13,7 +13,7 @@ final class StrTest extends TestCase
     use AfterLastTest;
     use BeforeTest;
     use BeforeLastTest;
-    use CamelCasetest;
+    use Cameltest;
     use CapitalizeTest;
     use ChunkTest;
     use ContainsTest;
@@ -23,7 +23,7 @@ final class StrTest extends TestCase
     use EndsWithTest;
     use EscapeTest;
     use IndexOfTest;
-    use KebabCaseTest;
+    use KebabTest;
     use LastIndexOfTest;
     use LengthTest;
     use LimitTest;
@@ -31,7 +31,7 @@ final class StrTest extends TestCase
     use PadTest;
     use PadEndTest;
     use PadStartTest;
-    use PascalCaseTest;
+    use PascalTest;
     use RandomTest;
     use RepeatTest;
     use ReplaceTest;
@@ -44,7 +44,7 @@ final class StrTest extends TestCase
     use ShuffleTest;
     use SliceTest;
     use SlugTest;
-    use SnakeCaseTest;
+    use SnakeTest;
     use SplitTest;
     use StartTest;
     use StartsWithTest;
