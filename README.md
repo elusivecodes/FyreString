@@ -147,7 +147,7 @@ $containsAny = Str::containsAny($string, $searches);
 Append a substring to a string (if it does not already end with the substring).
 
 - `$string` is the input string.
-- `$search` is a the search string.
+- `$search` is the string to append.
 
 ```php
 $end = Str::end($string, $search);
@@ -158,7 +158,7 @@ $end = Str::end($string, $search);
 Test whether a string ends with a substring.
 
 - `$string` is the input string.
-- `$search` is a the search string.
+- `$search` is the search string.
 
 ```php
 $endsWith = Str::endsWith($string, $search);
@@ -180,7 +180,7 @@ $escaped = Str::escape($string, $flags);
 Get the position of the first occurrence of a substring within a string.
 
 - `$string` is the input string.
-- `$search` is a the search string.
+- `$search` is the search string.
 - `$start` is the starting offset, and will default to *0*.
 
 ```php
@@ -204,7 +204,7 @@ $kebab = Str::kebab($string);
 Get the position of the last occurrence of a substring within a string.
 
 - `$string` is the input string.
-- `$search` is a the search string.
+- `$search` is the search string.
 - `$start` is the starting offset, and will default to *0*.
 
 ```php
@@ -438,16 +438,16 @@ Convert a string into snake_case.
 $snake = Str::snake($string);
 ```
 
-**Slug**
+**Split**
 
-plit a string by a specified delimiter.
+Split a string by a specified delimiter.
 
 - `$string` is the input string.
 - `$delimiter` is the delimiter to split by.
 - `$limit` is the maximum number of substrings to return, and will default to *PHP_INT_MAX*.
 
 ```php
-$slug = Str::slug($string, $delimiter);
+$split = Str::split($string, $delimiter);
 ```
 
 **Start**
@@ -455,7 +455,7 @@ $slug = Str::slug($string, $delimiter);
 Prepend a substring to a string (if it does not already begin with the substring).
 
 - `$string` is the input string.
-- `$search` is a the search string.
+- `$search` is the string to prepend.
 
 ```php
 $start = Str::start($string, $search);
@@ -466,7 +466,7 @@ $start = Str::start($string, $search);
 Test whether a string begins with a substring.
 
 - `$string` is the input string.
-- `$search` is a the search string.
+- `$search` is the search string.
 
 ```php
 $startsWith = Str::startsWith($string, $search);

@@ -38,7 +38,7 @@ use function
 /**
  * Str
  */
-class Str
+abstract class Str
 {
 
     public const BOTH = STR_PAD_BOTH;
@@ -710,7 +710,7 @@ class Str
      * @param string $string The input string.
      * @return string The formatted string.
      */
-    private static function preFormatCase(string $string): string
+    protected static function preFormatCase(string $string): string
     {
         return static::trim(
             preg_replace(
