@@ -1,5 +1,5 @@
 {
-    "name": "frost/fyre-string",
+    "name": "fyre/string",
     "description": "A string utility library.",
     "type": "library",
     "license": "MIT",
