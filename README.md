@@ -254,7 +254,7 @@ Pad a string to a specified length.
 - `$padding` is the padding to use, and will default to " ".
 
 ```php
-$padded = Str::pad($lower, $length, $padding);
+$padded = Str::pad($string, $length, $padding);
 ```
 
 **Pad End**
@@ -266,7 +266,7 @@ Pad the end of a string to a specified length.
 - `$padding` is the padding to use, and will default to " ".
 
 ```php
-$padded = Str::padEnd($lower, $length, $padding);
+$padded = Str::padEnd($string, $length, $padding);
 ```
 
 **Pad Start**
@@ -278,7 +278,7 @@ Pad the start of a string to a specified length.
 - `$padding` is the padding to use, and will default to " ".
 
 ```php
-$padded = Str::padStart($lower, $length, $padding);
+$padded = Str::padStart($string, $length, $padding);
 ```
 
 **Pascal**
@@ -322,7 +322,7 @@ Search and replace a value within a string.
 - `$replace` is the replacement string.
 
 ```php
-$replaced = Str::relace($string, $search, $replace);
+$replaced = Str::replace($string, $search, $replace);
 ```
 
 **Replace Array**
@@ -370,7 +370,7 @@ Search and replace the first occurrence of a value within a string.
 - `$replace` is the replacement string.
 
 ```php
-$replaced = Str::relaceFirst($string, $search, $replace);
+$replaced = Str::replaceFirst($string, $search, $replace);
 ```
 
 **Replace Last**
@@ -382,7 +382,7 @@ Search and replace the last occurrence of a value within a string.
 - `$replace` is the replacement string.
 
 ```php
-$replaced = Str::relaceLast($string, $search, $replace);
+$replaced = Str::replaceLast($string, $search, $replace);
 ```
 
 **Reverse**

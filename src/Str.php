@@ -17,7 +17,7 @@ use function
     htmlspecialchars,
     iconv,
     lcfirst,
-    random_int,
+    random_int,f
     strlen,
     strpos,
     strrev,
