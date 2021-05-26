@@ -31,8 +31,9 @@ trait ContainsTest
 
     public function testContainsWithEmptyString(): void
     {
-        $this->expectError();
-        Str::contains('This is a test string', '');
+        $this->assertTrue(
+            Str::contains('This is a test string', '')
+        );
     }
 
 }

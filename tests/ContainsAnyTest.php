@@ -31,8 +31,9 @@ trait ContainsAnyTest
 
     public function testContainsAnyWithEmptyString(): void
     {
-        $this->expectError();
-        Str::containsAny('This is a test string', ['']);
+        $this->assertTrue(
+            Str::containsAny('This is a test string', [''])
+        );
     }
 
 }

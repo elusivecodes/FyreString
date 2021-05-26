@@ -50,8 +50,10 @@ trait IndexOfTest
 
     public function testIndexOfWithEmptySearch(): void
     {
-        $this->expectError();
-        Str::indexOf('This is a test string', '');
+        $this->assertEquals(
+            0,
+            Str::indexOf('This is a test string', '')
+        );
     }
 
 }

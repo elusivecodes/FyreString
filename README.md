@@ -189,6 +189,16 @@ $indexOf = Str::indexOf($string, $search);
 
 If the `search` string is not found, this method will return *-1*.
 
+**Is String**
+
+Determine if the value is a string.
+
+- `$value` is the value to test.
+
+```php
+$isString = Str::isString($value);
+```
+
 **Kebab**
 
 Convert a string into kebab-case.

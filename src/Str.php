@@ -1,10 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Fyre;
 
 use const
+    ENT_COMPAT,
+    ENT_DISALLOWED,
+    ENT_HTML401,
     ENT_HTML5,
+    ENT_IGNORE,
+    ENT_NOQUOTES,
     ENT_QUOTES,
+    ENT_SUBSTITUTE,
+    ENT_XHTML,
+    ENT_XML1,
+    LC_CTYPE,
     STR_PAD_BOTH,
     STR_PAD_LEFT,
     STR_PAD_RIGHT;
@@ -16,8 +27,10 @@ use function
     explode,
     htmlspecialchars,
     iconv,
+    is_string,
     lcfirst,
-    random_int,f
+    random_int,
+    setlocale,
     strlen,
     strpos,
     strrev,
@@ -41,9 +54,20 @@ use function
 abstract class Str
 {
 
-    public const BOTH = STR_PAD_BOTH;
-    public const LEFT = STR_PAD_LEFT;
-    public const RIGHT = STR_PAD_RIGHT;
+    public const PAD_BOTH = STR_PAD_BOTH;
+    public const PAD_LEFT = STR_PAD_LEFT;
+    public const PAD_RIGHT = STR_PAD_RIGHT;
+
+    public const ENT_COMPAT = ENT_COMPAT;
+    public const ENT_DISALLOWED = ENT_DISALLOWED;
+    public const ENT_HTML401 = ENT_HTML401;
+    public const ENT_HTML5 = ENT_HTML5;
+    public const ENT_IGNORE = ENT_IGNORE;
+    public const ENT_NOQUOTES = ENT_NOQUOTES;
+    public const ENT_QUOTES = ENT_QUOTES;
+    public const ENT_SUBSTITUTE = ENT_SUBSTITUTE;
+    public const ENT_XHTML = ENT_XHTML;
+    public const ENT_XML1 = ENT_XML1;
 
     public const WHITESPACE_MASK = " \t\n\r\0\x0B";
 
@@ -107,7 +131,11 @@ abstract class Str
             return '';
         }
 
-        return strstr($string, $search, true);
+        $result = strstr($string, $search, true);
+
+        return $result ?
+            $result :
+            '';
     }
 
     /**
@@ -252,7 +280,7 @@ abstract class Str
      * @param int $flags Flags to use when escaping.
      * @return string The escaped string.
      */
-    public static function escape(string $string, int $flags = ENT_QUOTES | ENT_HTML5): string
+    public static function escape(string $string, int $flags = self::ENT_QUOTES | self::ENT_HTML5): string
     {
         return htmlspecialchars($string, $flags);
     }
@@ -271,6 +299,16 @@ abstract class Str
         return $position !== false ?
             $position :
             -1;
+    }
+
+    /**
+     * Determine if the value is a string.
+     * @param mixed $value The value to test.
+     * @return bool TRUE if the value is a string, otherwise FALSE.
+     */
+    public static function isString($value): bool
+    {
+        return is_string($value);
     }
 
     /**
@@ -341,7 +379,7 @@ abstract class Str
      * @param int $padType The type of padding to perform.
      * @return string The padded string.
      */
-    public static function pad(string $string, int $length, string $padding = ' ', int $padType = self::BOTH): string
+    public static function pad(string $string, int $length, string $padding = ' ', int $padType = self::PAD_BOTH): string
     {
         return str_pad($string, $length, $padding, $padType);
     }
@@ -355,7 +393,7 @@ abstract class Str
      */
     public static function padEnd(string $string, int $length, string $padding = ' '): string
     {
-        return static::pad($string, $length, $padding, self::RIGHT);
+        return static::pad($string, $length, $padding, self::PAD_RIGHT);
     }
 
     /**
@@ -367,7 +405,7 @@ abstract class Str
      */
     public static function padStart(string $string, int $length, string $padding = ' '): string
     {
-        return static::pad($string, $length, $padding, self::LEFT);
+        return static::pad($string, $length, $padding, self::PAD_LEFT);
     }
 
     /**
@@ -655,11 +693,18 @@ abstract class Str
      */
     public static function transliterate(string $string): string
     {
-        return iconv(
+        $locale = setlocale(LC_CTYPE, 0);
+        setlocale(LC_CTYPE, 'en_US.UTF8');
+
+        $result = iconv(
             'UTF-8',
             'ASCII//TRANSLIT//IGNORE',
             $string
         );
+
+        setlocale(LC_CTYPE, $locale);
+
+        return $result;
     }
 
     /**

@@ -51,7 +51,7 @@ trait LastIndexOfTest
     public function testLastIndexOfWithEmptySearch(): void
     {
         $this->assertEquals(
-            -1,
+            21,
             Str::lastIndexOf('This is a test string', '')
         );
     }

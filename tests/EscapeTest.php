@@ -3,8 +3,7 @@
 namespace Tests;
 
 use
-    Fyre\Str,
-    InvalidArgumentException;
+    Fyre\Str;
 
 trait EscapeTest
 {
