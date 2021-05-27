@@ -187,7 +187,7 @@ abstract class Str
     /**
      * Split a string into smaller chunks.
      * @param string $string The input string.
-     * @param int  $size The maximum length of a chunk.
+     * @param int $size The maximum length of a chunk.
      * @return array The split substrings.
      */
     public static function chunk(string $string, int $size = 1): array
