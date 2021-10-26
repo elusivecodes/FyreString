@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Tests;
 
 use
-    Fyre\Str;
+    Fyre\Utility\Str;
 
 trait SnakeTest
 {

@@ -20,7 +20,7 @@ composer install fyre/string
 In PHP:
 
 ```php
-use Fyre\Str;
+use Fyre\Utility\Str;
 ```
 
 
