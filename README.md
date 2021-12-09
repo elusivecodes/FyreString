@@ -14,7 +14,7 @@
 **Using Composer**
 
 ```
-composer install fyre/string
+composer require fyre/string
 ```
 
 In PHP:
