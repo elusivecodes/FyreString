@@ -37,11 +37,13 @@ use function
     strstr,
     strtolower,
     strtoupper,
+    str_ends_with,
     str_pad,
     str_shuffle,
     str_repeat,
     str_replace,
     str_split,
+    str_starts_with,
     substr,
     substr_replace,
     ucfirst,
@@ -265,12 +267,7 @@ abstract class Str
             return false;
         }
 
-        $stringLength = static::length($string);
-        $searchLength = static::length($search);
-
-        return $stringLength >= $searchLength ?
-            static::slice($string, -$searchLength) === $search :
-            false;
+        return str_ends_with($string, $search);
     }
 
     /**
@@ -665,12 +662,7 @@ abstract class Str
             return false;
         }
 
-        $stringLength = static::length($string);
-        $searchLength = static::length($search);
-
-        return $stringLength >= $searchLength ?
-            static::slice($string, 0, $searchLength) === $search :
-            false;
+        return str_starts_with($string, $search);
     }
 
     /**
