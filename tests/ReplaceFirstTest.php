@@ -11,7 +11,7 @@ trait ReplaceFirstTest
 
     public function testReplaceFirstWithMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a new string',
             Str::replaceFirst('This is a test string', 'test', 'new')
         );
@@ -19,7 +19,7 @@ trait ReplaceFirstTest
 
     public function testReplaceFirstWithMultipleMatches(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a new test string',
             Str::replaceFirst('This is a test test string', 'test', 'new')
         );
@@ -27,7 +27,7 @@ trait ReplaceFirstTest
 
     public function testReplaceFirstWithoutMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::replaceFirst('This is a test string', 'invalid', 'new')
         );
@@ -35,7 +35,7 @@ trait ReplaceFirstTest
 
     public function testReplaceFirstWithEmptySearch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::replaceFirst('This is a test string', '', 'new')
         );

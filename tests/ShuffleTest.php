@@ -26,7 +26,7 @@ trait ShuffleTest
             $string = Str::shuffle($test);
             $test2 = Str::chunk($string);
             sort($test2);
-            $this->assertEquals(
+            $this->assertSame(
                 $test1,
                 $test2
             );
@@ -35,8 +35,9 @@ trait ShuffleTest
 
         $strings = array_unique($strings);
 
-        $this->assertTrue(
-            count($strings) > 100
+        $this->assertGreaterThan(
+            100,
+            count($strings)
         );
     }
 

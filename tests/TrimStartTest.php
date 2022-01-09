@@ -11,7 +11,7 @@ trait TrimStartTest
 
     public function testTrimStartWithString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::trimStart('This is a test string')
         );
@@ -19,7 +19,7 @@ trait TrimStartTest
 
     public function testTrimStartWhitespace(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             "This is a test string \r\n",
             Str::trimStart("\r\n This is a test string \r\n")
         );
@@ -27,7 +27,7 @@ trait TrimStartTest
 
     public function testTrimStartWithMask(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '123456000',
             Str::trimStart('000123456000', '0')
         );

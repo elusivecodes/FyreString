@@ -11,7 +11,7 @@ trait PascalTest
 
     public function testPascalWithString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'ThisIsATestString',
             Str::pascal('This is a test string')
         );
@@ -19,7 +19,7 @@ trait PascalTest
 
     public function testPascalWithConsecutiveSpaces(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'ThisIsATestString',
             Str::pascal('This is a test string')
         );
@@ -27,7 +27,7 @@ trait PascalTest
 
     public function testPascalFromCamel(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'ThisIsATestString',
             Str::pascal('thisIsATestString')
         );
@@ -35,7 +35,7 @@ trait PascalTest
 
     public function testPascalFromKebab(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'ThisIsATestString',
             Str::pascal('this-is-a-test-string')
         );
@@ -43,7 +43,7 @@ trait PascalTest
 
     public function testPascalFromSnake(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'ThisIsATestString',
             Str::pascal('this_is_a_test_string')
         );
@@ -51,7 +51,7 @@ trait PascalTest
 
     public function testPascalWithAccents(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'Aeiou',
             Str::pascal('äëïöü')
         );

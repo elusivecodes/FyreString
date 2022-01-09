@@ -11,7 +11,7 @@ trait SplitTest
 
     public function testSplitWithSpace(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'This',
                 'is',
@@ -25,7 +25,7 @@ trait SplitTest
 
     public function testSplitWithString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'This is a',
                 'string'
@@ -36,7 +36,7 @@ trait SplitTest
 
     public function testSplitWithPositiveLimit(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'This',
                 'is',
@@ -48,7 +48,7 @@ trait SplitTest
 
     public function testSplitWithNegativeLimit(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'This',
                 'is',
@@ -61,7 +61,7 @@ trait SplitTest
 
     public function testSplitWithZeroLimit(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'This is a test string'
             ],
@@ -71,7 +71,7 @@ trait SplitTest
 
     public function testSplitWithEmptyString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [''],
             Str::split('', ' ')
         );

@@ -11,7 +11,7 @@ trait SlugTest
 
     public function testSlugWithString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'this_is_a_test_string',
             Str::slug('This is a test string')
         );
@@ -19,7 +19,7 @@ trait SlugTest
 
     public function testSlugWithConsecutiveSpaces(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'this_is_a_test_string',
             Str::slug('This is a test string')
         );
@@ -27,7 +27,7 @@ trait SlugTest
 
     public function testSlugFromCamelCase(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'this_is_a_test_string',
             Str::slug('thisIsATestString')
         );
@@ -35,7 +35,7 @@ trait SlugTest
 
     public function testSlugFromKebabCase(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'this_is_a_test_string',
             Str::slug('this-is-a-test-string')
         );
@@ -43,7 +43,7 @@ trait SlugTest
 
     public function testSlugFromPascalCase(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'this_is_a_test_string',
             Str::slug('ThisIsATestString')
         );
@@ -51,7 +51,7 @@ trait SlugTest
 
     public function testSlugFromSnakeCase(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'this_is_a_test_string',
             Str::slug('this_is_a_test_string')
         );
@@ -59,7 +59,7 @@ trait SlugTest
 
     public function testSlugWithDelimiter(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'this+is+a+test+string',
             Str::slug('this_is_a_test_string', '+')
         );
@@ -67,7 +67,7 @@ trait SlugTest
 
     public function testSlugWithAccents(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'aeiou',
             Str::slug('äëïöü')
         );

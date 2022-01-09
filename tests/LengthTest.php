@@ -11,7 +11,7 @@ trait LengthTest
 
     public function testLengthWithString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             21,
             Str::length('This is a test string')
         );
@@ -19,7 +19,7 @@ trait LengthTest
 
     public function testLengthWithEmptyString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             0,
             Str::length('')
         );

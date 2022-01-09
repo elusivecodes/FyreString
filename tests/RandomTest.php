@@ -20,16 +20,18 @@ trait RandomTest
 
         for ($i = 0; $i < 1000; $i++) {
             $string = Str::random();
-            $this->assertTrue(
-                preg_match('/^[0-9a-zA-Z]{16}$/', $string) === 1
+            $this->assertMatchesRegularExpression(
+                '/^[0-9a-zA-Z]{16}$/',
+                $string
             );
             $strings[] = $string;
         }
 
         $strings = array_unique($strings);
 
-        $this->assertTrue(
-            count($strings) > 100
+        $this->assertGreaterThan(
+            100,
+            count($strings)
         );
     }
 
@@ -39,16 +41,18 @@ trait RandomTest
 
         for ($i = 0; $i < 1000; $i++) {
             $string = Str::random(24);
-            $this->assertTrue(
-                preg_match('/^[0-9a-zA-Z]{24}$/', $string) === 1
+            $this->assertMatchesRegularExpression(
+                '/^[0-9a-zA-Z]{24}$/',
+                $string
             );
             $strings[] = $string;
         }
 
         $strings = array_unique($strings);
 
-        $this->assertTrue(
-            count($strings) > 100
+        $this->assertGreaterThan(
+            100,
+            count($strings)
         );
     }
 
@@ -58,16 +62,18 @@ trait RandomTest
 
         for ($i = 0; $i < 1000; $i++) {
             $string = Str::random(8, Str::NUMERIC);
-            $this->assertTrue(
-                preg_match('/^[0-9]{8}$/', $string) === 1
+            $this->assertMatchesRegularExpression(
+                '/^[0-9]{8}$/',
+                $string
             );
             $strings[] = $string;
         }
 
         $strings = array_unique($strings);
 
-        $this->assertTrue(
-            count($strings) > 100
+        $this->assertGreaterThan(
+            100,
+            count($strings)
         );
     }
 
@@ -77,16 +83,18 @@ trait RandomTest
 
         for ($i = 0; $i < 1000; $i++) {
             $string = Str::random(8, Str::ALPHA);
-            $this->assertTrue(
-                preg_match('/^[a-zA-Z]{8}$/', $string) === 1
+            $this->assertMatchesRegularExpression(
+                '/^[a-zA-Z]{8}$/',
+                $string
             );
             $strings[] = $string;
         }
 
         $strings = array_unique($strings);
 
-        $this->assertTrue(
-            count($strings) > 100
+        $this->assertGreaterThan(
+            100,
+            count($strings)
         );
     }
 

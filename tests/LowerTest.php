@@ -11,7 +11,7 @@ trait LowerTest
 
     public function testLowerFromLowerCase(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'this is a test string',
             Str::lower('this is a test string')
         );
@@ -19,7 +19,7 @@ trait LowerTest
 
     public function testLowerFromUpperCase(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'this is a test string',
             Str::lower('THIS IS A TEST STRING')
         );

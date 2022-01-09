@@ -11,7 +11,7 @@ trait ReplaceArrayTest
 
     public function testReplaceArrayWithMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a new string',
             Str::replaceArray('This is a test string', 'test', ['new'])
         );
@@ -19,7 +19,7 @@ trait ReplaceArrayTest
 
     public function testReplaceArrayWithMultipleMatches(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a new different string',
             Str::replaceArray('This is a test test string', 'test', ['new', 'different'])
         );
@@ -27,7 +27,7 @@ trait ReplaceArrayTest
 
     public function testReplaceArrayWithMissingReplacements(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a new  string',
             Str::replaceArray('This is a test test string', 'test', ['new'])
         );
@@ -35,7 +35,7 @@ trait ReplaceArrayTest
 
     public function testReplaceArrayWithExcessReplacements(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a new string',
             Str::replaceArray('This is a test string', 'test', ['new', 'different'])
         );
@@ -43,7 +43,7 @@ trait ReplaceArrayTest
 
     public function testReplaceArrayWithoutMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::replaceArray('This is a test string', 'invalid', ['new'])
         );
@@ -51,7 +51,7 @@ trait ReplaceArrayTest
 
     public function testReplaceArrayWithEmptySearch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::replaceArray('This is a test string', '', ['new'])
         );

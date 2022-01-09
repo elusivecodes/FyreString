@@ -11,7 +11,7 @@ trait TransliterateTest
 
     public function testTransliterateWithString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::transliterate('This is a test string')
         );
@@ -19,7 +19,7 @@ trait TransliterateTest
 
     public function testTransliterateWithAccents(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'aeiou',
             Str::transliterate('äëïöü')
         );

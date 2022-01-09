@@ -11,7 +11,7 @@ trait ReverseTest
 
     public function testReverseWithString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'gnirts tset a si sihT',
             Str::reverse('This is a test string')
         );
@@ -19,7 +19,7 @@ trait ReverseTest
 
     public function testReverseWithEmptyString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '',
             Str::reverse('')
         );

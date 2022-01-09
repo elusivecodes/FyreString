@@ -11,7 +11,7 @@ trait CapitalizeTest
 
     public function testCapitalizeFromLowerCase(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::capitalize('this is a test string')
         );
@@ -19,7 +19,7 @@ trait CapitalizeTest
 
     public function testCapitalizeFromUppercase(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::capitalize('THIS IS A TEST STRING')
         );

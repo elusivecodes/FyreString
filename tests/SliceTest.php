@@ -11,7 +11,7 @@ trait SliceTest
 
     public function testSliceWithPositiveStart(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'test string',
             Str::slice('This is a test string', 10)
         );
@@ -19,7 +19,7 @@ trait SliceTest
 
     public function testSliceWithNegativeStart(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'test string',
             Str::slice('This is a test string', -11)
         );
@@ -27,7 +27,7 @@ trait SliceTest
 
     public function testSliceWithPositiveLength(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'test',
             Str::slice('This is a test string', 10, 4)
         );
@@ -35,7 +35,7 @@ trait SliceTest
 
     public function testSliceWithNegativeLength(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'test',
             Str::slice('This is a test string', 10, -7)
         );
@@ -43,7 +43,7 @@ trait SliceTest
 
     public function testSliceWithOutOfBoundsStart(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '',
             Str::slice('This is a test string', 21)
         );
@@ -51,7 +51,7 @@ trait SliceTest
 
     public function testSliceWithEmptyString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '',
             Str::slice('', 10)
         );

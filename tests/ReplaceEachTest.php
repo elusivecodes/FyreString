@@ -11,7 +11,7 @@ trait ReplaceEachTest
 
     public function testReplaceEachWithMatches(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a new phrase',
             Str::replaceEach('This is a test string', [
                 'test' => 'new',
@@ -22,7 +22,7 @@ trait ReplaceEachTest
 
     public function testReplaceEachWithMultipleMatches(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a new new phrase',
             Str::replaceEach('This is a test test string', [
                 'test' => 'new',
@@ -33,7 +33,7 @@ trait ReplaceEachTest
 
     public function testReplaceEachWithoutMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::replaceEach('This is a test string', [
                 'invalid' => 'new',

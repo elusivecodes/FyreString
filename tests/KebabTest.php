@@ -11,7 +11,7 @@ trait KebabTest
 
     public function testKebabWithString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'this-is-a-test-string',
             Str::kebab('This is a test string')
         );
@@ -19,7 +19,7 @@ trait KebabTest
 
     public function testKebabWithConsecutiveSpaces(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'this-is-a-test-string',
             Str::kebab('This is a test   string')
         );
@@ -27,7 +27,7 @@ trait KebabTest
 
     public function testKebabFromCamel(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'this-is-a-test-string',
             Str::kebab('thisIsATestString')
         );
@@ -35,7 +35,7 @@ trait KebabTest
 
     public function testKebabFromPascal(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'this-is-a-test-string',
             Str::kebab('ThisIsATestString')
         );
@@ -43,7 +43,7 @@ trait KebabTest
 
     public function testKebabFromSnake(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'this-is-a-test-string',
             Str::kebab('this_is_a_test_string')
         );
@@ -51,7 +51,7 @@ trait KebabTest
 
     public function testKebabWithAccents(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'aeiou',
             Str::kebab('äëïöü')
         );

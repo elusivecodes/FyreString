@@ -11,7 +11,7 @@ trait StartTest
 
     public function testStartWithMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::start('This is a test string', 'This is a ')
         );
@@ -19,7 +19,7 @@ trait StartTest
 
     public function testStartWithoutMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::start('test string', 'This is a ')
         );
@@ -27,7 +27,7 @@ trait StartTest
 
     public function testStartWithEmptyString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::start('This is a test string', '')
         );

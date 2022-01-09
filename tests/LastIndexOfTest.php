@@ -11,7 +11,7 @@ trait LastIndexOfTest
 
     public function testLastIndexOfWithMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             9,
             Str::lastIndexOf('This is a test string', ' test ')
         );
@@ -19,7 +19,7 @@ trait LastIndexOfTest
 
     public function testLastIndexOfWithMultipleMatches(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             14,
             Str::lastIndexOf('This is a test test string', ' test ')
         );
@@ -27,7 +27,7 @@ trait LastIndexOfTest
 
     public function testLastIndexOfWithoutMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             -1,
             Str::lastIndexOf('This is a test string', 'invalid')
         );
@@ -35,7 +35,7 @@ trait LastIndexOfTest
 
     public function testLastIndexOfWithPositiveStart(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             14,
             Str::lastIndexOf('This is a test test string', ' test ', 10)
         );
@@ -43,7 +43,7 @@ trait LastIndexOfTest
 
     public function testLastIndexOfWithNegativeStart(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             9,
             Str::lastIndexOf('This is a test test string', ' test ', -13)
         );
@@ -51,7 +51,7 @@ trait LastIndexOfTest
 
     public function testLastIndexOfWithEmptySearch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             21,
             Str::lastIndexOf('This is a test string', '')
         );

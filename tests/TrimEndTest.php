@@ -11,7 +11,7 @@ trait TrimEndTest
 
     public function testTrimEndWithString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::trimEnd('This is a test string')
         );
@@ -19,7 +19,7 @@ trait TrimEndTest
 
     public function testTrimEndWhitespace(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             "\r\n This is a test string",
             Str::trimEnd("\r\n This is a test string \r\n")
         );
@@ -27,7 +27,7 @@ trait TrimEndTest
 
     public function testTrimEndWithMask(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '000123456',
             Str::trimEnd('000123456000', '0')
         );

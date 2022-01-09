@@ -11,7 +11,7 @@ trait UpperTest
 
     public function testUpperFromLowerCase(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'THIS IS A TEST STRING',
             Str::upper('this is a test string')
         );
@@ -19,7 +19,7 @@ trait UpperTest
 
     public function testUpperFromUpperCase(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'THIS IS A TEST STRING',
             Str::upper('THIS IS A TEST STRING')
         );

@@ -11,7 +11,7 @@ trait BeforeLastTest
 
     public function testBeforeLastWithMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a',
             Str::beforeLast('This is a test string', ' test ')
         );
@@ -19,7 +19,7 @@ trait BeforeLastTest
 
     public function testBeforeLastWithMultipleMatches(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test',
             Str::beforeLast('This is a test test string', ' test ')
         );
@@ -27,7 +27,7 @@ trait BeforeLastTest
 
     public function testBeforeLastWithoutMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '',
             Str::beforeLast('This is a test string', 'invalid')
         );
@@ -35,7 +35,7 @@ trait BeforeLastTest
 
     public function testBeforeLastWithEmptySearch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::beforeLast('This is a test string', '')
         );

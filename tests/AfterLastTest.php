@@ -11,7 +11,7 @@ trait AfterLastTest
 
     public function testAfterLastWithMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'string',
             Str::afterLast('This is a test string', ' test ')
         );
@@ -19,7 +19,7 @@ trait AfterLastTest
 
     public function testAfterLastWithMultipleMatches(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'string',
             Str::afterLast('This is a test test string', ' test ')
         );
@@ -27,7 +27,7 @@ trait AfterLastTest
 
     public function testAfterLastWithoutMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::afterLast('This is a test string', 'invalid')
         );
@@ -35,7 +35,7 @@ trait AfterLastTest
 
     public function testAfterLastWithEmptySearch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '',
             Str::afterLast('This is a test string', '')
         );

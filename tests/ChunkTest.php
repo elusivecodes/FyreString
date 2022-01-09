@@ -11,7 +11,7 @@ trait ChunkTest
 
     public function testChunkWithString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'T',
                 'h',
@@ -41,7 +41,7 @@ trait ChunkTest
 
     public function testChunkWithLength(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'This ',
                 'is a ',
@@ -54,7 +54,7 @@ trait ChunkTest
     }
     public function testChunkWithEmptyString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [''],
             Str::chunk('')
         );

@@ -11,7 +11,7 @@ trait IndexOfTest
 
     public function testIndexOfWithMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             9,
             Str::indexOf('This is a test string', ' test ')
         );
@@ -19,7 +19,7 @@ trait IndexOfTest
 
     public function testIndexOfWithMultipleMatches(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             9,
             Str::indexOf('This is a test test string', ' test ')
         );
@@ -27,7 +27,7 @@ trait IndexOfTest
 
     public function testIndexOfWithoutMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             -1,
             Str::indexOf('This is a test string', 'invalid')
         );
@@ -35,7 +35,7 @@ trait IndexOfTest
 
     public function testIndexOfWithPositiveStart(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             14,
             Str::indexOf('This is a test test string', ' test ', 10)
         );
@@ -43,7 +43,7 @@ trait IndexOfTest
 
     public function testIndexOfWithNegativeStart(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             14,
             Str::indexOf('This is a test test string', ' test ', -13)
         );
@@ -51,7 +51,7 @@ trait IndexOfTest
 
     public function testIndexOfWithEmptySearch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             0,
             Str::indexOf('This is a test string', '')
         );

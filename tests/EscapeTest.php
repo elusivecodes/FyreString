@@ -11,7 +11,7 @@ trait EscapeTest
 
     public function testEscapeWithString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::escape('This is a test string')
         );
@@ -19,7 +19,7 @@ trait EscapeTest
 
     public function testEscapeAmpersand(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '&amp;',
             Str::escape('&')
         );
@@ -27,7 +27,7 @@ trait EscapeTest
 
     public function testEscapeDoubleQuote(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '&quot;',
             Str::escape('"')
         );
@@ -35,7 +35,7 @@ trait EscapeTest
 
     public function testEscapeSingleQuote(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '&apos;',
             Str::escape('\'')
         );
@@ -43,7 +43,7 @@ trait EscapeTest
 
     public function testEscapeLessThan(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '&lt;',
             Str::escape('<')
         );
@@ -51,7 +51,7 @@ trait EscapeTest
 
     public function testEscapeGreaterThan(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '&gt;',
             Str::escape('>')
         );

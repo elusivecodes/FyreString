@@ -11,7 +11,7 @@ trait PadStartTest
 
     public function testPadStartAboveLength(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::padStart('This is a test string', 10)
         );
@@ -19,7 +19,7 @@ trait PadStartTest
 
     public function testPadStartBelowLength(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '  This is a test string',
             Str::padStart('This is a test string', 23)
         );
@@ -27,7 +27,7 @@ trait PadStartTest
 
     public function testPadStartWithPadding(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '__This is a test string',
             Str::padStart('This is a test string', 23, '_')
         );
@@ -35,7 +35,7 @@ trait PadStartTest
 
     public function testPadStartWithEmptyString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             ' ',
             Str::padStart('', 1)
         );

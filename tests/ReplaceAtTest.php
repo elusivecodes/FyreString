@@ -11,7 +11,7 @@ trait ReplaceAtTest
 
     public function testReplaceAtWithPositivePosition(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a new test string',
             Str::replaceAt('This is a test string', 'new ', 10)
         );
@@ -19,7 +19,7 @@ trait ReplaceAtTest
 
     public function testReplaceAtWithNegativePosition(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a new test string',
             Str::replaceAt('This is a test string', 'new ', -11)
         );
@@ -27,7 +27,7 @@ trait ReplaceAtTest
 
     public function testReplaceWithAtWithPositiveLength(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a new string',
             Str::replaceAt('This is a test string', 'new', 10, 4)
         );
@@ -35,7 +35,7 @@ trait ReplaceAtTest
 
     public function testReplaceAtWithNegativeLength(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a new string',
             Str::replaceAt('This is a test string', 'new', 10, -7)
         );

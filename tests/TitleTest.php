@@ -11,7 +11,7 @@ trait TitleTest
 
     public function testTitleFromLowerCase(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This Is A Test String',
             Str::title('this is a test string')
         );
@@ -19,7 +19,7 @@ trait TitleTest
 
     public function testTitleFromUpperCase(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This Is A Test String',
             Str::title('THIS IS A TEST STRING')
         );

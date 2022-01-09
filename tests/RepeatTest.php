@@ -11,7 +11,7 @@ trait RepeatTest
 
     public function testRepeatWithCount(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test stringThis is a test stringThis is a test string',
             Str::repeat('This is a test string', 3)
         );
@@ -19,7 +19,7 @@ trait RepeatTest
 
     public function testRepeatZeroCount(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '',
             Str::repeat('This is a test string', 0)
         );
@@ -27,7 +27,7 @@ trait RepeatTest
 
     public function testRepeatOneCount(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::repeat('This is a test string', 1)
         );
@@ -35,7 +35,7 @@ trait RepeatTest
 
     public function testRepeatWithEmptyString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '',
             Str::repeat('', 3)
         );

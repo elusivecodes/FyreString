@@ -11,7 +11,7 @@ trait LimitTest
 
     public function testLimitNotReached(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::limit('This is a test string')
         );
@@ -19,7 +19,7 @@ trait LimitTest
 
     public function testLimitExceeded(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string that is designed specifically to contain enough words to go above the default ...',
             Str::limit('This is a test string that is designed specifically to contain enough words to go above the default limit of 100 characters.')
         );
@@ -27,7 +27,7 @@ trait LimitTest
 
     public function testLimitWithLimit(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a ...',
             Str::limit('This is a test string', 10)
         );
@@ -35,7 +35,7 @@ trait LimitTest
 
     public function testLimitWithAppend(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a _',
             Str::limit('This is a test string', 10, '_')
         );

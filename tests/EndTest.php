@@ -11,7 +11,7 @@ trait EndTest
 
     public function testEndWithMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::end('This is a test string', ' a test string')
         );
@@ -19,7 +19,7 @@ trait EndTest
 
     public function testEndWithoutMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::end('This is a ', 'test string')
         );
@@ -27,7 +27,7 @@ trait EndTest
 
     public function testEndWithEmptyString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::end('This is a test string', '')
         );

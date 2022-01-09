@@ -11,7 +11,7 @@ trait BeforeTest
 
     public function testBeforeWithMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a',
             Str::before('This is a test string', ' test ')
         );
@@ -19,7 +19,7 @@ trait BeforeTest
 
     public function testBeforeWithMultipleMatches(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a',
             Str::before('This is a test test string', ' test ')
         );
@@ -27,7 +27,7 @@ trait BeforeTest
 
     public function testBeforeWithoutMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '',
             Str::before('This is a test string', 'invalid')
         );
@@ -35,7 +35,7 @@ trait BeforeTest
 
     public function testBeforeWithEmptySearch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '',
             Str::before('This is a test string', '')
         );

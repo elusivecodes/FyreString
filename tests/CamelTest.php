@@ -11,7 +11,7 @@ trait CamelTest
 
     public function testCamelWithString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'thisIsATestString',
             Str::camel('This is a test string')
         );
@@ -19,7 +19,7 @@ trait CamelTest
 
     public function testCamelWithConsecutiveSpaces(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'thisIsATestString',
             Str::camel('This is a test   string')
         );
@@ -27,7 +27,7 @@ trait CamelTest
 
     public function testCamelFromKebab(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'thisIsATestString',
             Str::camel('this-is-a-test-string')
         );
@@ -35,7 +35,7 @@ trait CamelTest
 
     public function testCamelFromPascal(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'thisIsATestString',
             Str::camel('ThisIsATestString')
         );
@@ -43,7 +43,7 @@ trait CamelTest
 
     public function testCamelFromSnake(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'thisIsATestString',
             Str::camel('this_is_a_test_string')
         );
@@ -51,7 +51,7 @@ trait CamelTest
 
     public function testCamelWithAccents(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'aeiou',
             Str::camel('äëïöü')
         );

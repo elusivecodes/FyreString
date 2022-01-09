@@ -11,7 +11,7 @@ trait PadTest
 
     public function testPadAboveLength(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'This is a test string',
             Str::pad('This is a test string', 10)
         );
@@ -19,7 +19,7 @@ trait PadTest
 
     public function testPadBelowLength(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '  This is a test string  ',
             Str::pad('This is a test string', 25)
         );
@@ -27,7 +27,7 @@ trait PadTest
 
     public function testPadWithPadding(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             '__This is a test string__',
             Str::pad('This is a test string', 25, '_')
         );
@@ -35,7 +35,7 @@ trait PadTest
 
     public function testPadWithEmptyString(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             ' ',
             Str::pad('', 1)
         );
