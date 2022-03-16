@@ -302,7 +302,7 @@ abstract class Str
      * @param mixed $value The value to test.
      * @return bool TRUE if the value is a string, otherwise FALSE.
      */
-    public static function isString($value): bool
+    public static function isString(mixed $value): bool
     {
         return is_string($value);
     }
