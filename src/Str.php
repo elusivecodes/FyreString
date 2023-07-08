@@ -3,51 +3,49 @@ declare(strict_types=1);
 
 namespace Fyre\Utility;
 
-use const
-    ENT_COMPAT,
-    ENT_DISALLOWED,
-    ENT_HTML401,
-    ENT_HTML5,
-    ENT_IGNORE,
-    ENT_NOQUOTES,
-    ENT_QUOTES,
-    ENT_SUBSTITUTE,
-    ENT_XHTML,
-    ENT_XML1,
-    LC_CTYPE,
-    STR_PAD_BOTH,
-    STR_PAD_LEFT,
-    STR_PAD_RIGHT;
+use const ENT_COMPAT;
+use const ENT_DISALLOWED;
+use const ENT_HTML401;
+use const ENT_HTML5;
+use const ENT_IGNORE;
+use const ENT_NOQUOTES;
+use const ENT_QUOTES;
+use const ENT_SUBSTITUTE;
+use const ENT_XHTML;
+use const ENT_XML1;
+use const LC_CTYPE;
+use const STR_PAD_BOTH;
+use const STR_PAD_LEFT;
+use const STR_PAD_RIGHT;
 
-use function
-    array_keys,
-    array_shift,
-    array_values,
-    explode,
-    htmlspecialchars,
-    iconv,
-    is_string,
-    lcfirst,
-    random_int,
-    setlocale,
-    strlen,
-    strpos,
-    strrev,
-    strrpos,
-    strstr,
-    strtolower,
-    strtoupper,
-    str_ends_with,
-    str_pad,
-    str_shuffle,
-    str_repeat,
-    str_replace,
-    str_split,
-    str_starts_with,
-    substr,
-    substr_replace,
-    ucfirst,
-    ucwords;
+use function array_keys;
+use function array_shift;
+use function array_values;
+use function explode;
+use function htmlspecialchars;
+use function iconv;
+use function is_string;
+use function lcfirst;
+use function random_int;
+use function setlocale;
+use function strlen;
+use function strpos;
+use function strrev;
+use function strrpos;
+use function strstr;
+use function strtolower;
+use function strtoupper;
+use function str_ends_with;
+use function str_pad;
+use function str_shuffle;
+use function str_repeat;
+use function str_replace;
+use function str_split;
+use function str_starts_with;
+use function substr;
+use function substr_replace;
+use function ucfirst;
+use function ucwords;
 
 /**
  * Str
@@ -273,12 +271,12 @@ abstract class Str
     /**
      * Escape characters in a string for use in HTML.
      * @param string $string The input string.
-     * @param int|null $flags Flags to use when escaping.
+     * @param int $flags Flags to use when escaping.
      * @return string The escaped string.
      */
-    public static function escape(string $string, int|null $flags = null): string
+    public static function escape(string $string, int $flags = self::ENT_QUOTES | self::ENT_HTML5): string
     {
-        return htmlspecialchars($string, $flags ?? (static::ENT_QUOTES | static::ENT_HTML5));
+        return htmlspecialchars($string, $flags);
     }
 
     /**
@@ -372,12 +370,12 @@ abstract class Str
      * @param string $string The input string.
      * @param int $length The desired length.
      * @param string $padding The padding to use.
-     * @param int|null $padType The type of padding to perform.
+     * @param int $padType The type of padding to perform.
      * @return string The padded string.
      */
-    public static function pad(string $string, int $length, string $padding = ' ', int|null $padType = null): string
+    public static function pad(string $string, int $length, string $padding = ' ', int $padType = self::PAD_BOTH): string
     {
-        return str_pad($string, $length, $padding, $padType ?? static::PAD_BOTH);
+        return str_pad($string, $length, $padding, $padType);
     }
 
     /**
@@ -423,12 +421,11 @@ abstract class Str
     /**
      * Generate a random string.
      * @param int $length The length of the string to generate.
-     * @param string|null $chars The characters to use when generating the string.
+     * @param string $chars The characters to use when generating the string.
      * @return string The random string.
      */
-    public static function random(int $length = 16, string|null $chars = null): string
+    public static function random(int $length = 16, string $chars = self::ALPHANUMERIC): string
     {
-        $chars ??= static::ALPHANUMERIC;
         $max = static::length($chars) - 1;
 
         $output = '';
@@ -589,10 +586,10 @@ abstract class Str
      * Return a specified portion of a string.
      * @param string $string The input string.
      * @param int $start The starting offset.
-     * @param int $length The maximum length to return.
+     * @param int|null $length The maximum length to return.
      * @return string The sliced string.
      */
-    public static function slice(string $string, int $start, int $length = PHP_INT_MAX): string
+    public static function slice(string $string, int $start, int|null $length = null): string
     {
         return substr($string, $start, $length);
     }
@@ -702,34 +699,34 @@ abstract class Str
     /**
      * Trim whitespace (or other characters) from the start and end of a string.
      * @param string $string The input string.
-     * @param string|null $mask The characters to trim.
+     * @param string $mask The characters to trim.
      * @return string The trimmed string.
      */
-    public static function trim(string $string, string|null $mask = null): string
+    public static function trim(string $string, string $mask = self::WHITESPACE_MASK): string
     {
-        return trim($string, $mask ?? static::WHITESPACE_MASK);
+        return trim($string, $mask);
     }
 
     /**
      * Trim whitespace (or other characters) from the end of a string.
      * @param string $string The input string.
-     * @param string|null $mask The characters to trim.
+     * @param string $mask The characters to trim.
      * @return string The trimmed string.
      */
-    public static function trimEnd(string $string, string|null $mask = null): string
+    public static function trimEnd(string $string, string $mask = self::WHITESPACE_MASK): string
     {
-        return rtrim($string, $mask ?? static::WHITESPACE_MASK);
+        return rtrim($string, $mask);
     }
 
     /**
      * Trim whitespace (or other characters) from the start of a string.
      * @param string $string The input string.
-     * @param string|null $mask The characters to trim.
+     * @param string $mask The characters to trim.
      * @return string The trimmed string.
      */
-    public static function trimStart(string $string, string|null $mask = null): string
+    public static function trimStart(string $string, string $mask = self::WHITESPACE_MASK): string
     {
-        return ltrim($string, $mask ?? static::WHITESPACE_MASK);
+        return ltrim($string, $mask);
     }
 
     /**

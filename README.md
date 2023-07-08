@@ -1,6 +1,6 @@
 # FyreString
 
-**FyreString** is a free, string manipulation library for *PHP*.
+**FyreString** is a free, open-source string manipulation library for *PHP*.
 
 
 ## Table Of Contents
