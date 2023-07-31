@@ -7,7 +7,6 @@ use Fyre\Utility\Str;
 
 use function array_unique;
 use function count;
-use function preg_match;
 
 trait RandomTestTrait
 {
