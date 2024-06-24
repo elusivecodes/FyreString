@@ -7,23 +7,6 @@ use Fyre\Utility\Str;
 
 trait CamelTestTrait
 {
-
-    public function testCamelWithString(): void
-    {
-        $this->assertSame(
-            'thisIsATestString',
-            Str::camel('This is a test string')
-        );
-    }
-
-    public function testCamelWithConsecutiveSpaces(): void
-    {
-        $this->assertSame(
-            'thisIsATestString',
-            Str::camel('This is a test   string')
-        );
-    }
-
     public function testCamelFromKebab(): void
     {
         $this->assertSame(
@@ -56,4 +39,19 @@ trait CamelTestTrait
         );
     }
 
+    public function testCamelWithConsecutiveSpaces(): void
+    {
+        $this->assertSame(
+            'thisIsATestString',
+            Str::camel('This is a test   string')
+        );
+    }
+
+    public function testCamelWithString(): void
+    {
+        $this->assertSame(
+            'thisIsATestString',
+            Str::camel('This is a test string')
+        );
+    }
 }

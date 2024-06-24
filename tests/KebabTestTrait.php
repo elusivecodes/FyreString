@@ -7,23 +7,6 @@ use Fyre\Utility\Str;
 
 trait KebabTestTrait
 {
-
-    public function testKebabWithString(): void
-    {
-        $this->assertSame(
-            'this-is-a-test-string',
-            Str::kebab('This is a test string')
-        );
-    }
-
-    public function testKebabWithConsecutiveSpaces(): void
-    {
-        $this->assertSame(
-            'this-is-a-test-string',
-            Str::kebab('This is a test   string')
-        );
-    }
-
     public function testKebabFromCamel(): void
     {
         $this->assertSame(
@@ -56,4 +39,19 @@ trait KebabTestTrait
         );
     }
 
+    public function testKebabWithConsecutiveSpaces(): void
+    {
+        $this->assertSame(
+            'this-is-a-test-string',
+            Str::kebab('This is a test   string')
+        );
+    }
+
+    public function testKebabWithString(): void
+    {
+        $this->assertSame(
+            'this-is-a-test-string',
+            Str::kebab('This is a test string')
+        );
+    }
 }

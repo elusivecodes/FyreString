@@ -7,7 +7,6 @@ use Fyre\Utility\Str;
 
 trait IsStringTestTrait
 {
-
     public function testIsString(): void
     {
         $this->assertTrue(
@@ -29,17 +28,17 @@ trait IsStringTestTrait
         );
     }
 
-    public function testIsStringInt(): void
-    {
-        $this->assertFalse(
-            Str::isString(123)
-        );
-    }
-
     public function testIsStringFloat(): void
     {
         $this->assertFalse(
             Str::isString(123.456)
+        );
+    }
+
+    public function testIsStringInt(): void
+    {
+        $this->assertFalse(
+            Str::isString(123)
         );
     }
 
@@ -49,5 +48,4 @@ trait IsStringTestTrait
             Str::isString(null)
         );
     }
-
 }

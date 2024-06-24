@@ -7,28 +7,11 @@ use Fyre\Utility\Str;
 
 trait SliceTestTrait
 {
-
-    public function testSliceWithPositiveStart(): void
+    public function testSliceWithEmptyString(): void
     {
         $this->assertSame(
-            'test string',
-            Str::slice('This is a test string', 10)
-        );
-    }
-
-    public function testSliceWithNegativeStart(): void
-    {
-        $this->assertSame(
-            'test string',
-            Str::slice('This is a test string', -11)
-        );
-    }
-
-    public function testSliceWithPositiveLength(): void
-    {
-        $this->assertSame(
-            'test',
-            Str::slice('This is a test string', 10, 4)
+            '',
+            Str::slice('', 10)
         );
     }
 
@@ -40,6 +23,14 @@ trait SliceTestTrait
         );
     }
 
+    public function testSliceWithNegativeStart(): void
+    {
+        $this->assertSame(
+            'test string',
+            Str::slice('This is a test string', -11)
+        );
+    }
+
     public function testSliceWithOutOfBoundsStart(): void
     {
         $this->assertSame(
@@ -48,12 +39,19 @@ trait SliceTestTrait
         );
     }
 
-    public function testSliceWithEmptyString(): void
+    public function testSliceWithPositiveLength(): void
     {
         $this->assertSame(
-            '',
-            Str::slice('', 10)
+            'test',
+            Str::slice('This is a test string', 10, 4)
         );
     }
 
+    public function testSliceWithPositiveStart(): void
+    {
+        $this->assertSame(
+            'test string',
+            Str::slice('This is a test string', 10)
+        );
+    }
 }

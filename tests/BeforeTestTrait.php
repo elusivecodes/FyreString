@@ -7,6 +7,13 @@ use Fyre\Utility\Str;
 
 trait BeforeTestTrait
 {
+    public function testBeforeWithEmptySearch(): void
+    {
+        $this->assertSame(
+            '',
+            Str::before('This is a test string', '')
+        );
+    }
 
     public function testBeforeWithMatch(): void
     {
@@ -31,13 +38,4 @@ trait BeforeTestTrait
             Str::before('This is a test string', 'invalid')
         );
     }
-
-    public function testBeforeWithEmptySearch(): void
-    {
-        $this->assertSame(
-            '',
-            Str::before('This is a test string', '')
-        );
-    }
-
 }

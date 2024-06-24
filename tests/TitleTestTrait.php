@@ -7,7 +7,6 @@ use Fyre\Utility\Str;
 
 trait TitleTestTrait
 {
-
     public function testTitleFromLowerCase(): void
     {
         $this->assertSame(
@@ -23,5 +22,4 @@ trait TitleTestTrait
             Str::title('THIS IS A TEST STRING')
         );
     }
-
 }

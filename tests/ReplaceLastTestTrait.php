@@ -7,6 +7,13 @@ use Fyre\Utility\Str;
 
 trait ReplaceLastTestTrait
 {
+    public function testReplaceLastWithEmptySearch(): void
+    {
+        $this->assertSame(
+            'This is a test string',
+            Str::replaceLast('This is a test string', '', 'new')
+        );
+    }
 
     public function testReplaceLastWithMatch(): void
     {
@@ -31,13 +38,4 @@ trait ReplaceLastTestTrait
             Str::replaceLast('This is a test string', 'invalid', 'new')
         );
     }
-
-    public function testReplaceLastWithEmptySearch(): void
-    {
-        $this->assertSame(
-            'This is a test string',
-            Str::replaceLast('This is a test string', '', 'new')
-        );
-    }
-
 }

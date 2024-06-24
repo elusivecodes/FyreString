@@ -7,6 +7,13 @@ use Fyre\Utility\Str;
 
 trait LastIndexOfTestTrait
 {
+    public function testLastIndexOfWithEmptySearch(): void
+    {
+        $this->assertSame(
+            21,
+            Str::lastIndexOf('This is a test string', '')
+        );
+    }
 
     public function testLastIndexOfWithMatch(): void
     {
@@ -21,6 +28,14 @@ trait LastIndexOfTestTrait
         $this->assertSame(
             14,
             Str::lastIndexOf('This is a test test string', ' test ')
+        );
+    }
+
+    public function testLastIndexOfWithNegativeStart(): void
+    {
+        $this->assertSame(
+            9,
+            Str::lastIndexOf('This is a test test string', ' test ', -13)
         );
     }
 
@@ -39,21 +54,4 @@ trait LastIndexOfTestTrait
             Str::lastIndexOf('This is a test test string', ' test ', 10)
         );
     }
-
-    public function testLastIndexOfWithNegativeStart(): void
-    {
-        $this->assertSame(
-            9,
-            Str::lastIndexOf('This is a test test string', ' test ', -13)
-        );
-    }
-
-    public function testLastIndexOfWithEmptySearch(): void
-    {
-        $this->assertSame(
-            21,
-            Str::lastIndexOf('This is a test string', '')
-        );
-    }
-
 }

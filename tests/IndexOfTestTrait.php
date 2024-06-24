@@ -7,6 +7,13 @@ use Fyre\Utility\Str;
 
 trait IndexOfTestTrait
 {
+    public function testIndexOfWithEmptySearch(): void
+    {
+        $this->assertSame(
+            0,
+            Str::indexOf('This is a test string', '')
+        );
+    }
 
     public function testIndexOfWithMatch(): void
     {
@@ -21,6 +28,14 @@ trait IndexOfTestTrait
         $this->assertSame(
             9,
             Str::indexOf('This is a test test string', ' test ')
+        );
+    }
+
+    public function testIndexOfWithNegativeStart(): void
+    {
+        $this->assertSame(
+            14,
+            Str::indexOf('This is a test test string', ' test ', -13)
         );
     }
 
@@ -39,21 +54,4 @@ trait IndexOfTestTrait
             Str::indexOf('This is a test test string', ' test ', 10)
         );
     }
-
-    public function testIndexOfWithNegativeStart(): void
-    {
-        $this->assertSame(
-            14,
-            Str::indexOf('This is a test test string', ' test ', -13)
-        );
-    }
-
-    public function testIndexOfWithEmptySearch(): void
-    {
-        $this->assertSame(
-            0,
-            Str::indexOf('This is a test string', '')
-        );
-    }
-
 }

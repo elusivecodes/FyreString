@@ -7,15 +7,6 @@ use Fyre\Utility\Str;
 
 trait EscapeTestTrait
 {
-
-    public function testEscapeWithString(): void
-    {
-        $this->assertSame(
-            'This is a test string',
-            Str::escape('This is a test string')
-        );
-    }
-
     public function testEscapeAmpersand(): void
     {
         $this->assertSame(
@@ -32,11 +23,11 @@ trait EscapeTestTrait
         );
     }
 
-    public function testEscapeSingleQuote(): void
+    public function testEscapeGreaterThan(): void
     {
         $this->assertSame(
-            '&apos;',
-            Str::escape('\'')
+            '&gt;',
+            Str::escape('>')
         );
     }
 
@@ -48,12 +39,19 @@ trait EscapeTestTrait
         );
     }
 
-    public function testEscapeGreaterThan(): void
+    public function testEscapeSingleQuote(): void
     {
         $this->assertSame(
-            '&gt;',
-            Str::escape('>')
+            '&apos;',
+            Str::escape('\'')
         );
     }
 
+    public function testEscapeWithString(): void
+    {
+        $this->assertSame(
+            'This is a test string',
+            Str::escape('This is a test string')
+        );
+    }
 }

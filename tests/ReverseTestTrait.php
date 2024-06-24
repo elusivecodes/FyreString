@@ -7,15 +7,6 @@ use Fyre\Utility\Str;
 
 trait ReverseTestTrait
 {
-
-    public function testReverseWithString(): void
-    {
-        $this->assertSame(
-            'gnirts tset a si sihT',
-            Str::reverse('This is a test string')
-        );
-    }
-
     public function testReverseWithEmptyString(): void
     {
         $this->assertSame(
@@ -24,4 +15,11 @@ trait ReverseTestTrait
         );
     }
 
+    public function testReverseWithString(): void
+    {
+        $this->assertSame(
+            'gnirts tset a si sihT',
+            Str::reverse('This is a test string')
+        );
+    }
 }

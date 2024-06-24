@@ -7,6 +7,13 @@ use Fyre\Utility\Str;
 
 trait AfterLastTestTrait
 {
+    public function testAfterLastWithEmptySearch(): void
+    {
+        $this->assertSame(
+            '',
+            Str::afterLast('This is a test string', '')
+        );
+    }
 
     public function testAfterLastWithMatch(): void
     {
@@ -31,13 +38,4 @@ trait AfterLastTestTrait
             Str::afterLast('This is a test string', 'invalid')
         );
     }
-
-    public function testAfterLastWithEmptySearch(): void
-    {
-        $this->assertSame(
-            '',
-            Str::afterLast('This is a test string', '')
-        );
-    }
-
 }

@@ -7,7 +7,6 @@ use Fyre\Utility\Str;
 
 trait PadStartTestTrait
 {
-
     public function testPadStartAboveLength(): void
     {
         $this->assertSame(
@@ -24,14 +23,6 @@ trait PadStartTestTrait
         );
     }
 
-    public function testPadStartWithPadding(): void
-    {
-        $this->assertSame(
-            '__This is a test string',
-            Str::padStart('This is a test string', 23, '_')
-        );
-    }
-
     public function testPadStartWithEmptyString(): void
     {
         $this->assertSame(
@@ -40,4 +31,11 @@ trait PadStartTestTrait
         );
     }
 
+    public function testPadStartWithPadding(): void
+    {
+        $this->assertSame(
+            '__This is a test string',
+            Str::padStart('This is a test string', 23, '_')
+        );
+    }
 }

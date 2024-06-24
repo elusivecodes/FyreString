@@ -7,6 +7,38 @@ use Fyre\Utility\Str;
 
 trait SplitTestTrait
 {
+    public function testSplitWithEmptyString(): void
+    {
+        $this->assertSame(
+            [''],
+            Str::split('', ' ')
+        );
+    }
+
+    public function testSplitWithNegativeLimit(): void
+    {
+        $this->assertSame(
+            [
+                'This',
+                'is',
+                'a',
+                'test'
+            ],
+            Str::split('This is a test string', ' ', -1)
+        );
+    }
+
+    public function testSplitWithPositiveLimit(): void
+    {
+        $this->assertSame(
+            [
+                'This',
+                'is',
+                'a test string'
+            ],
+            Str::split('This is a test string', ' ', 3)
+        );
+    }
 
     public function testSplitWithSpace(): void
     {
@@ -33,31 +65,6 @@ trait SplitTestTrait
         );
     }
 
-    public function testSplitWithPositiveLimit(): void
-    {
-        $this->assertSame(
-            [
-                'This',
-                'is',
-                'a test string'
-            ],
-            Str::split('This is a test string', ' ', 3)
-        );
-    }
-
-    public function testSplitWithNegativeLimit(): void
-    {
-        $this->assertSame(
-            [
-                'This',
-                'is',
-                'a',
-                'test'
-            ],
-            Str::split('This is a test string', ' ', -1)
-        );
-    }
-
     public function testSplitWithZeroLimit(): void
     {
         $this->assertSame(
@@ -67,13 +74,4 @@ trait SplitTestTrait
             Str::split('This is a test string', ' ', 0)
         );
     }
-
-    public function testSplitWithEmptyString(): void
-    {
-        $this->assertSame(
-            [''],
-            Str::split('', ' ')
-        );
-    }
-
 }

@@ -7,15 +7,6 @@ use Fyre\Utility\Str;
 
 trait LengthTestTrait
 {
-
-    public function testLengthWithString(): void
-    {
-        $this->assertSame(
-            21,
-            Str::length('This is a test string')
-        );
-    }
-
     public function testLengthWithEmptyString(): void
     {
         $this->assertSame(
@@ -24,4 +15,11 @@ trait LengthTestTrait
         );
     }
 
+    public function testLengthWithString(): void
+    {
+        $this->assertSame(
+            21,
+            Str::length('This is a test string')
+        );
+    }
 }

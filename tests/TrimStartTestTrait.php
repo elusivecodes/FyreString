@@ -7,15 +7,6 @@ use Fyre\Utility\Str;
 
 trait TrimStartTestTrait
 {
-
-    public function testTrimStartWithString(): void
-    {
-        $this->assertSame(
-            'This is a test string',
-            Str::trimStart('This is a test string')
-        );
-    }
-
     public function testTrimStartWhitespace(): void
     {
         $this->assertSame(
@@ -32,4 +23,11 @@ trait TrimStartTestTrait
         );
     }
 
+    public function testTrimStartWithString(): void
+    {
+        $this->assertSame(
+            'This is a test string',
+            Str::trimStart('This is a test string')
+        );
+    }
 }

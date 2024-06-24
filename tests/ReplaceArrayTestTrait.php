@@ -7,28 +7,11 @@ use Fyre\Utility\Str;
 
 trait ReplaceArrayTestTrait
 {
-
-    public function testReplaceArrayWithMatch(): void
+    public function testReplaceArrayWithEmptySearch(): void
     {
         $this->assertSame(
-            'This is a new string',
-            Str::replaceArray('This is a test string', 'test', ['new'])
-        );
-    }
-
-    public function testReplaceArrayWithMultipleMatches(): void
-    {
-        $this->assertSame(
-            'This is a new different string',
-            Str::replaceArray('This is a test test string', 'test', ['new', 'different'])
-        );
-    }
-
-    public function testReplaceArrayWithMissingReplacements(): void
-    {
-        $this->assertSame(
-            'This is a new  string',
-            Str::replaceArray('This is a test test string', 'test', ['new'])
+            'This is a test string',
+            Str::replaceArray('This is a test string', '', ['new'])
         );
     }
 
@@ -40,6 +23,30 @@ trait ReplaceArrayTestTrait
         );
     }
 
+    public function testReplaceArrayWithMatch(): void
+    {
+        $this->assertSame(
+            'This is a new string',
+            Str::replaceArray('This is a test string', 'test', ['new'])
+        );
+    }
+
+    public function testReplaceArrayWithMissingReplacements(): void
+    {
+        $this->assertSame(
+            'This is a new  string',
+            Str::replaceArray('This is a test test string', 'test', ['new'])
+        );
+    }
+
+    public function testReplaceArrayWithMultipleMatches(): void
+    {
+        $this->assertSame(
+            'This is a new different string',
+            Str::replaceArray('This is a test test string', 'test', ['new', 'different'])
+        );
+    }
+
     public function testReplaceArrayWithoutMatch(): void
     {
         $this->assertSame(
@@ -47,13 +54,4 @@ trait ReplaceArrayTestTrait
             Str::replaceArray('This is a test string', 'invalid', ['new'])
         );
     }
-
-    public function testReplaceArrayWithEmptySearch(): void
-    {
-        $this->assertSame(
-            'This is a test string',
-            Str::replaceArray('This is a test string', '', ['new'])
-        );
-    }
-
 }

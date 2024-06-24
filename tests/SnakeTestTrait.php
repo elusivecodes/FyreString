@@ -7,23 +7,6 @@ use Fyre\Utility\Str;
 
 trait SnakeTestTrait
 {
-
-    public function testSnakeWithString(): void
-    {
-        $this->assertSame(
-            'this_is_a_test_string',
-            Str::snake('This is a test string')
-        );
-    }
-
-    public function testSnakeWithConsecutiveSpaces(): void
-    {
-        $this->assertSame(
-            'this_is_a_test_string',
-            Str::snake('This is a test   string')
-        );
-    }
-
     public function testSnakeFromCamel(): void
     {
         $this->assertSame(
@@ -56,4 +39,19 @@ trait SnakeTestTrait
         );
     }
 
+    public function testSnakeWithConsecutiveSpaces(): void
+    {
+        $this->assertSame(
+            'this_is_a_test_string',
+            Str::snake('This is a test   string')
+        );
+    }
+
+    public function testSnakeWithString(): void
+    {
+        $this->assertSame(
+            'this_is_a_test_string',
+            Str::snake('This is a test string')
+        );
+    }
 }

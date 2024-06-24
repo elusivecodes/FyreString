@@ -7,6 +7,12 @@ use Fyre\Utility\Str;
 
 trait ContainsAllTestTrait
 {
+    public function testContainsAllWithEmptyString(): void
+    {
+        $this->assertTrue(
+            Str::containsAll('This is a test string', [''])
+        );
+    }
 
     public function testContainsAllWithMatches(): void
     {
@@ -28,12 +34,4 @@ trait ContainsAllTestTrait
             Str::containsAll('This is a string', ['is', 'value'])
         );
     }
-
-    public function testContainsAllWithEmptyString(): void
-    {
-        $this->assertTrue(
-            Str::containsAll('This is a test string', [''])
-        );
-    }
-
 }

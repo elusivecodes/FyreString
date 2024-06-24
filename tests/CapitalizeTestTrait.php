@@ -7,7 +7,6 @@ use Fyre\Utility\Str;
 
 trait CapitalizeTestTrait
 {
-
     public function testCapitalizeFromLowerCase(): void
     {
         $this->assertSame(
@@ -23,5 +22,4 @@ trait CapitalizeTestTrait
             Str::capitalize('THIS IS A TEST STRING')
         );
     }
-
 }

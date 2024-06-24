@@ -7,6 +7,27 @@ use Fyre\Utility\Str;
 
 trait ChunkTestTrait
 {
+    public function testChunkWithEmptyString(): void
+    {
+        $this->assertSame(
+            [],
+            Str::chunk('')
+        );
+    }
+
+    public function testChunkWithLength(): void
+    {
+        $this->assertSame(
+            [
+                'This ',
+                'is a ',
+                'test ',
+                'strin',
+                'g'
+            ],
+            Str::chunk('This is a test string', 5)
+        );
+    }
 
     public function testChunkWithString(): void
     {
@@ -37,26 +58,4 @@ trait ChunkTestTrait
             Str::chunk('This is a test string')
         );
     }
-
-    public function testChunkWithLength(): void
-    {
-        $this->assertSame(
-            [
-                'This ',
-                'is a ',
-                'test ',
-                'strin',
-                'g'
-            ],
-            Str::chunk('This is a test string', 5)
-        );
-    }
-    public function testChunkWithEmptyString(): void
-    {
-        $this->assertSame(
-            [],
-            Str::chunk('')
-        );
-    }
-
 }

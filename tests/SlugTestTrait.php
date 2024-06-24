@@ -7,23 +7,6 @@ use Fyre\Utility\Str;
 
 trait SlugTestTrait
 {
-
-    public function testSlugWithString(): void
-    {
-        $this->assertSame(
-            'this_is_a_test_string',
-            Str::slug('This is a test string')
-        );
-    }
-
-    public function testSlugWithConsecutiveSpaces(): void
-    {
-        $this->assertSame(
-            'this_is_a_test_string',
-            Str::slug('This is a test string')
-        );
-    }
-
     public function testSlugFromCamelCase(): void
     {
         $this->assertSame(
@@ -56,14 +39,6 @@ trait SlugTestTrait
         );
     }
 
-    public function testSlugWithDelimiter(): void
-    {
-        $this->assertSame(
-            'this+is+a+test+string',
-            Str::slug('this_is_a_test_string', '+')
-        );
-    }
-
     public function testSlugWithAccents(): void
     {
         $this->assertSame(
@@ -72,4 +47,27 @@ trait SlugTestTrait
         );
     }
 
+    public function testSlugWithConsecutiveSpaces(): void
+    {
+        $this->assertSame(
+            'this_is_a_test_string',
+            Str::slug('This is a test string')
+        );
+    }
+
+    public function testSlugWithDelimiter(): void
+    {
+        $this->assertSame(
+            'this+is+a+test+string',
+            Str::slug('this_is_a_test_string', '+')
+        );
+    }
+
+    public function testSlugWithString(): void
+    {
+        $this->assertSame(
+            'this_is_a_test_string',
+            Str::slug('This is a test string')
+        );
+    }
 }

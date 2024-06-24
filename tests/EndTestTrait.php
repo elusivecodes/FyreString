@@ -7,6 +7,13 @@ use Fyre\Utility\Str;
 
 trait EndTestTrait
 {
+    public function testEndWithEmptyString(): void
+    {
+        $this->assertSame(
+            'This is a test string',
+            Str::end('This is a test string', '')
+        );
+    }
 
     public function testEndWithMatch(): void
     {
@@ -23,13 +30,4 @@ trait EndTestTrait
             Str::end('This is a ', 'test string')
         );
     }
-
-    public function testEndWithEmptyString(): void
-    {
-        $this->assertSame(
-            'This is a test string',
-            Str::end('This is a test string', '')
-        );
-    }
-
 }

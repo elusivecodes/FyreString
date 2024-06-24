@@ -7,15 +7,6 @@ use Fyre\Utility\Str;
 
 trait LimitTestTrait
 {
-
-    public function testLimitNotReached(): void
-    {
-        $this->assertSame(
-            'This is a test string',
-            Str::limit('This is a test string')
-        );
-    }
-
     public function testLimitExceeded(): void
     {
         $this->assertSame(
@@ -24,11 +15,11 @@ trait LimitTestTrait
         );
     }
 
-    public function testLimitWithLimit(): void
+    public function testLimitNotReached(): void
     {
         $this->assertSame(
-            'This is a ...',
-            Str::limit('This is a test string', 10)
+            'This is a test string',
+            Str::limit('This is a test string')
         );
     }
 
@@ -40,4 +31,11 @@ trait LimitTestTrait
         );
     }
 
+    public function testLimitWithLimit(): void
+    {
+        $this->assertSame(
+            'This is a ...',
+            Str::limit('This is a test string', 10)
+        );
+    }
 }

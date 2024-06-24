@@ -7,23 +7,6 @@ use Fyre\Utility\Str;
 
 trait PascalTestTrait
 {
-
-    public function testPascalWithString(): void
-    {
-        $this->assertSame(
-            'ThisIsATestString',
-            Str::pascal('This is a test string')
-        );
-    }
-
-    public function testPascalWithConsecutiveSpaces(): void
-    {
-        $this->assertSame(
-            'ThisIsATestString',
-            Str::pascal('This is a test string')
-        );
-    }
-
     public function testPascalFromCamel(): void
     {
         $this->assertSame(
@@ -56,4 +39,19 @@ trait PascalTestTrait
         );
     }
 
+    public function testPascalWithConsecutiveSpaces(): void
+    {
+        $this->assertSame(
+            'ThisIsATestString',
+            Str::pascal('This is a test string')
+        );
+    }
+
+    public function testPascalWithString(): void
+    {
+        $this->assertSame(
+            'ThisIsATestString',
+            Str::pascal('This is a test string')
+        );
+    }
 }

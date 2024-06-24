@@ -7,12 +7,11 @@ use Fyre\Utility\Str;
 
 trait ReplaceAtTestTrait
 {
-
-    public function testReplaceAtWithPositivePosition(): void
+    public function testReplaceAtWithNegativeLength(): void
     {
         $this->assertSame(
-            'This is a new test string',
-            Str::replaceAt('This is a test string', 'new ', 10)
+            'This is a new string',
+            Str::replaceAt('This is a test string', 'new', 10, -7)
         );
     }
 
@@ -24,6 +23,14 @@ trait ReplaceAtTestTrait
         );
     }
 
+    public function testReplaceAtWithPositivePosition(): void
+    {
+        $this->assertSame(
+            'This is a new test string',
+            Str::replaceAt('This is a test string', 'new ', 10)
+        );
+    }
+
     public function testReplaceWithAtWithPositiveLength(): void
     {
         $this->assertSame(
@@ -31,13 +38,4 @@ trait ReplaceAtTestTrait
             Str::replaceAt('This is a test string', 'new', 10, 4)
         );
     }
-
-    public function testReplaceAtWithNegativeLength(): void
-    {
-        $this->assertSame(
-            'This is a new string',
-            Str::replaceAt('This is a test string', 'new', 10, -7)
-        );
-    }
-
 }

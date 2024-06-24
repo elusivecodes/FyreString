@@ -7,18 +7,17 @@ use Fyre\Utility\Str;
 
 trait ContainsAnyTestTrait
 {
+    public function testContainsAnyWithEmptyString(): void
+    {
+        $this->assertTrue(
+            Str::containsAny('This is a test string', [''])
+        );
+    }
 
     public function testContainsAnyWithMatch(): void
     {
         $this->assertTrue(
             Str::containsAny('This is a string', ['test', 'is'])
-        );
-    }
-
-    public function testContainsAnyWithoutMatch(): void
-    {
-        $this->assertFalse(
-            Str::containsAny('This is a string', ['test', 'value'])
         );
     }
 
@@ -29,11 +28,10 @@ trait ContainsAnyTestTrait
         );
     }
 
-    public function testContainsAnyWithEmptyString(): void
+    public function testContainsAnyWithoutMatch(): void
     {
-        $this->assertTrue(
-            Str::containsAny('This is a test string', [''])
+        $this->assertFalse(
+            Str::containsAny('This is a string', ['test', 'value'])
         );
     }
-
 }

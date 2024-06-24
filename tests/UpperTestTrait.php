@@ -7,7 +7,6 @@ use Fyre\Utility\Str;
 
 trait UpperTestTrait
 {
-
     public function testUpperFromLowerCase(): void
     {
         $this->assertSame(
@@ -23,5 +22,4 @@ trait UpperTestTrait
             Str::upper('THIS IS A TEST STRING')
         );
     }
-
 }

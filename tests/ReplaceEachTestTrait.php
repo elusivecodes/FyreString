@@ -7,7 +7,6 @@ use Fyre\Utility\Str;
 
 trait ReplaceEachTestTrait
 {
-
     public function testReplaceEachWithMatches(): void
     {
         $this->assertSame(
@@ -40,5 +39,4 @@ trait ReplaceEachTestTrait
             ])
         );
     }
-
 }

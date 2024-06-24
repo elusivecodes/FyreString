@@ -11,7 +11,6 @@ use function sort;
 
 trait ShuffleTestTrait
 {
-
     public function testShuffleIsRandom(): void
     {
         $test = Str::random();
@@ -38,5 +37,4 @@ trait ShuffleTestTrait
             count($strings)
         );
     }
-
 }

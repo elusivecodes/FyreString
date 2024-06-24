@@ -3,6 +3,35 @@ declare(strict_types=1);
 
 namespace Fyre\Utility;
 
+use function array_keys;
+use function array_shift;
+use function array_values;
+use function explode;
+use function htmlspecialchars;
+use function iconv;
+use function is_string;
+use function lcfirst;
+use function random_int;
+use function setlocale;
+use function str_ends_with;
+use function str_pad;
+use function str_repeat;
+use function str_replace;
+use function str_shuffle;
+use function str_split;
+use function str_starts_with;
+use function strlen;
+use function strpos;
+use function strrev;
+use function strrpos;
+use function strstr;
+use function strtolower;
+use function strtoupper;
+use function substr;
+use function substr_replace;
+use function ucfirst;
+use function ucwords;
+
 use const ENT_COMPAT;
 use const ENT_DISALLOWED;
 use const ENT_HTML401;
@@ -18,44 +47,13 @@ use const STR_PAD_BOTH;
 use const STR_PAD_LEFT;
 use const STR_PAD_RIGHT;
 
-use function array_keys;
-use function array_shift;
-use function array_values;
-use function explode;
-use function htmlspecialchars;
-use function iconv;
-use function is_string;
-use function lcfirst;
-use function random_int;
-use function setlocale;
-use function strlen;
-use function strpos;
-use function strrev;
-use function strrpos;
-use function strstr;
-use function strtolower;
-use function strtoupper;
-use function str_ends_with;
-use function str_pad;
-use function str_shuffle;
-use function str_repeat;
-use function str_replace;
-use function str_split;
-use function str_starts_with;
-use function substr;
-use function substr_replace;
-use function ucfirst;
-use function ucwords;
-
 /**
  * Str
  */
 abstract class Str
 {
-
-    public const PAD_BOTH = STR_PAD_BOTH;
-    public const PAD_LEFT = STR_PAD_LEFT;
-    public const PAD_RIGHT = STR_PAD_RIGHT;
+    public const ALPHA = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYXZ';
+    public const ALPHANUMERIC = self::ALPHA.self::NUMERIC;
 
     public const ENT_COMPAT = ENT_COMPAT;
     public const ENT_DISALLOWED = ENT_DISALLOWED;
@@ -68,11 +66,13 @@ abstract class Str
     public const ENT_XHTML = ENT_XHTML;
     public const ENT_XML1 = ENT_XML1;
 
-    public const WHITESPACE_MASK = " \t\n\r\0\x0B";
-
-    public const ALPHA = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYXZ';
     public const NUMERIC = '0123456789';
-    public const ALPHANUMERIC = self::ALPHA.self::NUMERIC;
+
+    public const PAD_BOTH = STR_PAD_BOTH;
+    public const PAD_LEFT = STR_PAD_LEFT;
+    public const PAD_RIGHT = STR_PAD_RIGHT;
+
+    public const WHITESPACE_MASK = " \t\n\r\0\x0B";
 
     /**
      * Return the contents of a string after the first occurrence of a substring.
@@ -214,7 +214,7 @@ abstract class Str
      */
     public static function containsAll(string $string, array $searches): bool
     {
-        foreach ($searches AS $search) {
+        foreach ($searches as $search) {
             if (!static::contains($string, $search)) {
                 return false;
             }
@@ -231,7 +231,7 @@ abstract class Str
      */
     public static function containsAny(string $string, array $searches): bool
     {
-        foreach ($searches AS $search) {
+        foreach ($searches as $search) {
             if (static::contains($string, $search)) {
                 return true;
             }
@@ -282,8 +282,8 @@ abstract class Str
     /**
      * Get the position of the first occurrence of a substring within a string.
      * @param string $string The input string.
-     * @param string $string The search string.
      * @param int $start The starting offset.
+     * @param string $string The search string.
      * @return int The position of the first occurrence of the substring, or -1 if it is not found.
      */
     public static function indexOf(string $string, string $search, int $start = 0): int
@@ -318,8 +318,8 @@ abstract class Str
     /**
      * Get the position of the last occurrence of a substring within a string.
      * @param string $string The input string.
-     * @param string $string The search string.
      * @param int $start The starting offset.
+     * @param string $string The search string.
      * @return int The position of the last occurrence of the substring, or -1 if it is not found.
      */
     public static function lastIndexOf(string $string, string $search, int $start = 0): int
@@ -762,5 +762,4 @@ abstract class Str
             )
         );
     }
-
 }

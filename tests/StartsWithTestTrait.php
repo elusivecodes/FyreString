@@ -7,6 +7,12 @@ use Fyre\Utility\Str;
 
 trait StartsWithTestTrait
 {
+    public function testStartsWithWithEmptyString(): void
+    {
+        $this->assertFalse(
+            Str::startsWith('This is a test string', '')
+        );
+    }
 
     public function testStartsWithWithMatch(): void
     {
@@ -21,12 +27,4 @@ trait StartsWithTestTrait
             Str::startsWith('test string', 'This is a ')
         );
     }
-
-    public function testStartsWithWithEmptyString(): void
-    {
-        $this->assertFalse(
-            Str::startsWith('This is a test string', '')
-        );
-    }
-
 }

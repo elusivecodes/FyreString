@@ -7,19 +7,19 @@ use PHPUnit\Framework\TestCase;
 
 final class StrTest extends TestCase
 {
+    use AfterLastTestTrait;
 
     use AfterTestTrait;
-    use AfterLastTestTrait;
-    use BeforeTestTrait;
     use BeforeLastTestTrait;
+    use BeforeTestTrait;
     use CameltestTrait;
     use CapitalizeTestTrait;
     use ChunkTestTrait;
-    use ContainsTestTrait;
     use ContainsAllTestTrait;
     use ContainsAnyTestTrait;
-    use EndTestTrait;
+    use ContainsTestTrait;
     use EndsWithTestTrait;
+    use EndTestTrait;
     use EscapeTestTrait;
     use IndexOfTestTrait;
     use IsStringTestTrait;
@@ -28,31 +28,31 @@ final class StrTest extends TestCase
     use LengthTestTrait;
     use LimitTestTrait;
     use LowerTestTrait;
-    use PadTestTrait;
     use PadEndTestTrait;
     use PadStartTestTrait;
+    use PadTestTrait;
     use PascalTestTrait;
     use RandomTestTrait;
     use RepeatTestTrait;
-    use ReplaceTestTrait;
     use ReplaceArrayTestTrait;
     use ReplaceAtTestTrait;
     use ReplaceEachTestTrait;
     use ReplaceFirstTestTrait;
     use ReplaceLastTestTrait;
+    use ReplaceTestTrait;
     use ReverseTestTrait;
     use ShuffleTestTrait;
     use SliceTestTrait;
     use SlugTestTrait;
     use SnakeTestTrait;
     use SplitTestTrait;
-    use StartTestTrait;
     use StartsWithTestTrait;
+    use StartTestTrait;
     use TitleTestTrait;
     use TransliterateTestTrait;
-    use TrimTestTrait;
     use TrimEndTestTrait;
     use TrimStartTestTrait;
+    use TrimTestTrait;
     use UpperTestTrait;
 
 }
