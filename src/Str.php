@@ -53,29 +53,42 @@ use const STR_PAD_RIGHT;
 abstract class Str
 {
     public const ALPHA = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYXZ';
+
     public const ALPHANUMERIC = self::ALPHA.self::NUMERIC;
 
     public const ENT_COMPAT = ENT_COMPAT;
+
     public const ENT_DISALLOWED = ENT_DISALLOWED;
+
     public const ENT_HTML401 = ENT_HTML401;
+
     public const ENT_HTML5 = ENT_HTML5;
+
     public const ENT_IGNORE = ENT_IGNORE;
+
     public const ENT_NOQUOTES = ENT_NOQUOTES;
+
     public const ENT_QUOTES = ENT_QUOTES;
+
     public const ENT_SUBSTITUTE = ENT_SUBSTITUTE;
+
     public const ENT_XHTML = ENT_XHTML;
+
     public const ENT_XML1 = ENT_XML1;
 
     public const NUMERIC = '0123456789';
 
     public const PAD_BOTH = STR_PAD_BOTH;
+
     public const PAD_LEFT = STR_PAD_LEFT;
+
     public const PAD_RIGHT = STR_PAD_RIGHT;
 
     public const WHITESPACE_MASK = " \t\n\r\0\x0B";
 
     /**
      * Return the contents of a string after the first occurrence of a substring.
+     *
      * @param string $string The input string.
      * @param string $search The search string.
      * @return string The after substring.
@@ -98,6 +111,7 @@ abstract class Str
 
     /**
      * Return the contents of a string after the last occurrence of a substring.
+     *
      * @param string $string The input string.
      * @param string $search The search string.
      * @return string The after substring.
@@ -120,6 +134,7 @@ abstract class Str
 
     /**
      * Return the contents of a string before the first occurrence of a substring.
+     *
      * @param string $string The input string.
      * @param string $search The search string.
      * @return string The before substring.
@@ -139,6 +154,7 @@ abstract class Str
 
     /**
      * Return the contents of a string before the last occurrence of a substring.
+     *
      * @param string $string The input string.
      * @param string $search The search string.
      * @return string The before substring.
@@ -162,6 +178,7 @@ abstract class Str
 
     /**
      * Convert a string into camelCase.
+     *
      * @param string $string The input string.
      * @return string The camelCase string.
      */
@@ -174,6 +191,7 @@ abstract class Str
 
     /**
      * Capitalize the first character of a string.
+     *
      * @param string $string The input string.
      * @return string The capitalized string.
      */
@@ -186,6 +204,7 @@ abstract class Str
 
     /**
      * Split a string into smaller chunks.
+     *
      * @param string $string The input string.
      * @param int $size The maximum length of a chunk.
      * @return array The split substrings.
@@ -197,6 +216,7 @@ abstract class Str
 
     /**
      * Test whether a string contains a substring.
+     *
      * @param string $string The input string.
      * @param string $search The search string.
      * @return bool TRUE if the string contains the substring, otherwise FALSE.
@@ -208,6 +228,7 @@ abstract class Str
 
     /**
      * Test whether a string contains all substrings.
+     *
      * @param string $string The input string.
      * @param array $searches The search strings.
      * @return bool TRUE if the string contains all of the substrings, otherwise FALSE.
@@ -225,6 +246,7 @@ abstract class Str
 
     /**
      * Test whether a string contains any substring.
+     *
      * @param string $string The input string.
      * @param array $searches The search strings.
      * @return bool TRUE if the string contains any of the substrings, otherwise FALSE.
@@ -242,6 +264,7 @@ abstract class Str
 
     /**
      * Append a substring to a string (if it does not already end with the substring).
+     *
      * @param string $string The input string.
      * @param string $search The search string.
      * @return string The appended string.
@@ -255,6 +278,7 @@ abstract class Str
 
     /**
      * Test whether a string ends with a substring.
+     *
      * @param string $string The input string.
      * @param string $search The search string.
      * @return bool TRUE if the string ends with the substring, otherwise FALSE.
@@ -270,6 +294,7 @@ abstract class Str
 
     /**
      * Escape characters in a string for use in HTML.
+     *
      * @param string $string The input string.
      * @param int $flags Flags to use when escaping.
      * @return string The escaped string.
@@ -281,6 +306,7 @@ abstract class Str
 
     /**
      * Get the position of the first occurrence of a substring within a string.
+     *
      * @param string $string The input string.
      * @param int $start The starting offset.
      * @param string $string The search string.
@@ -297,6 +323,7 @@ abstract class Str
 
     /**
      * Determine if the value is a string.
+     *
      * @param mixed $value The value to test.
      * @return bool TRUE if the value is a string, otherwise FALSE.
      */
@@ -307,6 +334,7 @@ abstract class Str
 
     /**
      * Convert a string into kebab-case.
+     *
      * @param string $string The input string.
      * @return string The kebab-case string.
      */
@@ -317,6 +345,7 @@ abstract class Str
 
     /**
      * Get the position of the last occurrence of a substring within a string.
+     *
      * @param string $string The input string.
      * @param int $start The starting offset.
      * @param string $string The search string.
@@ -333,6 +362,7 @@ abstract class Str
 
     /**
      * Get the length of a string (in bytes).
+     *
      * @param string $string The input string.
      * @return int The number of bytes contained in the string.
      */
@@ -343,6 +373,7 @@ abstract class Str
 
     /**
      * Limit a string to a specified number of bytes.
+     *
      * @param string $string The input string.
      * @param int $limit The number of bytes to split the string at.
      * @param string $append The substring to append if the string is split.
@@ -357,6 +388,7 @@ abstract class Str
 
     /**
      * Convert a string into lowercase.
+     *
      * @param string $string The input string.
      * @return string The lowercase string.
      */
@@ -367,6 +399,7 @@ abstract class Str
 
     /**
      * Pad a string to a specified length.
+     *
      * @param string $string The input string.
      * @param int $length The desired length.
      * @param string $padding The padding to use.
@@ -380,6 +413,7 @@ abstract class Str
 
     /**
      * Pad the end of a string to a specified length.
+     *
      * @param string $string The input string.
      * @param int $length The desired length.
      * @param string $padding The padding to use.
@@ -392,6 +426,7 @@ abstract class Str
 
     /**
      * Pad the start of a string to a specified length.
+     *
      * @param string $string The input string.
      * @param int $length The desired length.
      * @param string $padding The padding to use.
@@ -404,6 +439,7 @@ abstract class Str
 
     /**
      * Convert a string into PascalCase.
+     *
      * @param string $string The input string.
      * @return string The PascalCase string.
      */
@@ -420,6 +456,7 @@ abstract class Str
 
     /**
      * Generate a random string.
+     *
      * @param int $length The length of the string to generate.
      * @param string $chars The characters to use when generating the string.
      * @return string The random string.
@@ -438,6 +475,7 @@ abstract class Str
 
     /**
      * Repeat a string a specified number of times.
+     *
      * @param string $string The input string.
      * @param int $count The number of times to repeat.
      * @return string The repeated string.
@@ -449,6 +487,7 @@ abstract class Str
 
     /**
      * Search and replace a value within a string.
+     *
      * @param string $string The input string.
      * @param string $search The value to replace.
      * @param string $replace The replacement string.
@@ -461,6 +500,7 @@ abstract class Str
 
     /**
      * Search and replace a value sequentially within a string.
+     *
      * @param string $string The input string.
      * @param string $search The value to replace.
      * @param array $replacements The replacement strings.
@@ -486,6 +526,7 @@ abstract class Str
 
     /**
      * Replace text within a portion of a string.
+     *
      * @param string $string The input string.
      * @param string $replace The replacement string.
      * @param int $position The position to replace from.
@@ -499,6 +540,7 @@ abstract class Str
 
     /**
      * Search and replace key/value pairs within a string.
+     *
      * @param string $string The input string.
      * @param array $replacements The replacements.
      * @return string The string with replaced values.
@@ -514,6 +556,7 @@ abstract class Str
 
     /**
      * Search and replace the first occurrence of a value within a string.
+     *
      * @param string $string The input string.
      * @param string $search The value to replace.
      * @param string $replace The replacement string.
@@ -539,6 +582,7 @@ abstract class Str
 
     /**
      * Search and replace the last occurrence of a value within a string.
+     *
      * @param string $string The input string.
      * @param string $search The value to replace.
      * @param string $replace The replacement string.
@@ -564,6 +608,7 @@ abstract class Str
 
     /**
      * Reverse the contents of a string.
+     *
      * @param string $string The input string.
      * @return string The reversed string.
      */
@@ -574,6 +619,7 @@ abstract class Str
 
     /**
      * Shuffle the contents of a string
+     *
      * @param string $string The input string.
      * @return string The shuffled string.
      */
@@ -584,6 +630,7 @@ abstract class Str
 
     /**
      * Return a specified portion of a string.
+     *
      * @param string $string The input string.
      * @param int $start The starting offset.
      * @param int|null $length The maximum length to return.
@@ -596,6 +643,7 @@ abstract class Str
 
     /**
      * Format a string for use in a URL.
+     *
      * @param string $string The input string.
      * @param string $delimiter The delimiter to use.
      * @return string The slug string.
@@ -615,6 +663,7 @@ abstract class Str
 
     /**
      * Convert a string into snake_case.
+     *
      * @param string $string The input string.
      * @return string The snake_case string.
      */
@@ -625,6 +674,7 @@ abstract class Str
 
     /**
      * Split a string by a specified delimiter.
+     *
      * @param string $string The input string.
      * @param string $delimiter The delimiter to split by.
      * @param int $limit The maximum number of substrings to return.
@@ -637,6 +687,7 @@ abstract class Str
 
     /**
      * Prepend a substring to a string (if it does not already begin with the substring).
+     *
      * @param string $string The input string.
      * @param string $search The search string.
      * @return string The prepended string.
@@ -650,6 +701,7 @@ abstract class Str
 
     /**
      * Test whether a string begins with a substring.
+     *
      * @param string $string The input string.
      * @param string $search The search string.
      * @return bool TRUE if the string begins with the substring, otherwise FALSE.
@@ -665,6 +717,7 @@ abstract class Str
 
     /**
      * Capitalize the first character of each word in a string.
+     *
      * @param string $string The input string.
      * @return string The capitalized string.
      */
@@ -677,6 +730,7 @@ abstract class Str
 
     /**
      * Transliterate the characters of a string into ASCII.
+     *
      * @param string $string The input string.
      * @return string The transliterated string.
      */
@@ -698,6 +752,7 @@ abstract class Str
 
     /**
      * Trim whitespace (or other characters) from the start and end of a string.
+     *
      * @param string $string The input string.
      * @param string $mask The characters to trim.
      * @return string The trimmed string.
@@ -709,6 +764,7 @@ abstract class Str
 
     /**
      * Trim whitespace (or other characters) from the end of a string.
+     *
      * @param string $string The input string.
      * @param string $mask The characters to trim.
      * @return string The trimmed string.
@@ -720,6 +776,7 @@ abstract class Str
 
     /**
      * Trim whitespace (or other characters) from the start of a string.
+     *
      * @param string $string The input string.
      * @param string $mask The characters to trim.
      * @return string The trimmed string.
@@ -731,6 +788,7 @@ abstract class Str
 
     /**
      * Convert a string into UPPERCASE.
+     *
      * @param string $string The input string.
      * @return string The UPPERCASE string.
      */
@@ -741,6 +799,7 @@ abstract class Str
 
     /**
      * Pre-format a string for case conversion.
+     *
      * @param string $string The input string.
      * @return string The formatted string.
      */
@@ -751,12 +810,12 @@ abstract class Str
                 [
                     '/([A-Z])/',
                     '/[_-]/',
-                    '/\s+/'
+                    '/\s+/',
                 ],
                 [
                     ' $1',
                     ' ',
-                    ' '
+                    ' ',
                 ],
                 static::transliterate($string)
             )

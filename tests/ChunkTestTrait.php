@@ -23,7 +23,7 @@ trait ChunkTestTrait
                 'is a ',
                 'test ',
                 'strin',
-                'g'
+                'g',
             ],
             Str::chunk('This is a test string', 5)
         );
@@ -53,7 +53,7 @@ trait ChunkTestTrait
                 'r',
                 'i',
                 'n',
-                'g'
+                'g',
             ],
             Str::chunk('This is a test string')
         );

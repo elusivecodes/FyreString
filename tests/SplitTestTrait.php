@@ -22,7 +22,7 @@ trait SplitTestTrait
                 'This',
                 'is',
                 'a',
-                'test'
+                'test',
             ],
             Str::split('This is a test string', ' ', -1)
         );
@@ -34,7 +34,7 @@ trait SplitTestTrait
             [
                 'This',
                 'is',
-                'a test string'
+                'a test string',
             ],
             Str::split('This is a test string', ' ', 3)
         );
@@ -48,7 +48,7 @@ trait SplitTestTrait
                 'is',
                 'a',
                 'test',
-                'string'
+                'string',
             ],
             Str::split('This is a test string', ' ')
         );
@@ -59,7 +59,7 @@ trait SplitTestTrait
         $this->assertSame(
             [
                 'This is a',
-                'string'
+                'string',
             ],
             Str::split('This is a test string', ' test ')
         );
@@ -69,7 +69,7 @@ trait SplitTestTrait
     {
         $this->assertSame(
             [
-                'This is a test string'
+                'This is a test string',
             ],
             Str::split('This is a test string', ' ', 0)
         );

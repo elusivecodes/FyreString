@@ -8,7 +8,6 @@ use PHPUnit\Framework\TestCase;
 final class StrTest extends TestCase
 {
     use AfterLastTestTrait;
-
     use AfterTestTrait;
     use BeforeLastTestTrait;
     use BeforeTestTrait;
@@ -54,5 +53,4 @@ final class StrTest extends TestCase
     use TrimStartTestTrait;
     use TrimTestTrait;
     use UpperTestTrait;
-
 }
