@@ -28,7 +28,7 @@ use Fyre\Utility\Str;
 
 **After**
 
-Return the contents of a string after the first occurrence of a substring.
+Get the contents of a string after the first occurrence of a substring.
 
 - `$string` is the input string.
 - `$search` is a string representing the value to search for.
@@ -41,7 +41,7 @@ If the `search` string is not found, this method will return the original string
 
 **After Last**
 
-Return the contents of a string after the last occurrence of a substring.
+Get the contents of a string after the last occurrence of a substring.
 
 - `$string` is the input string.
 - `$search` is a string representing the value to search for.
@@ -54,7 +54,7 @@ If the `search` string is not found, this method will return the original string
 
 **Before**
 
-Return the contents of a string before the first occurrence of a substring.
+Get the contents of a string before the first occurrence of a substring.
 
 - `$string` is the input string.
 - `$search` is a string representing the value to search for.
@@ -67,7 +67,7 @@ If the `search` string is not found, this method will return an empty string.
 
 **Before Last**
 
-Return the contents of a string before the last occurrence of a substring.
+Get the contents of a string before the last occurrence of a substring.
 
 - `$string` is the input string.
 - `$search` is a string representing the value to search for.
@@ -111,7 +111,7 @@ $chunks = Str::chunks($string, $size);
 
 **Contains**
 
-Test whether a string contains a substring.
+Determine whether a string contains a substring.
 
 - `$string` is the input string.
 - `$search` is a string representing the value to search for.
@@ -122,7 +122,7 @@ $contains = Str::contains($string, $search);
 
 **Contains All**
 
-Test whether a string contains all substrings.
+Determine whether a string contains all substrings.
 
 - `$string` is the input string.
 - `$searches` is an array containing search strings.
@@ -133,7 +133,7 @@ $containsAll = Str::containsAll($string, $searches);
 
 **Contains Any**
 
-Test whether a string contains any substring.
+Determine whether a string contains any substring.
 
 - `$string` is the input string.
 - `$searches` is an array containing search strings.
@@ -155,7 +155,7 @@ $end = Str::end($string, $search);
 
 **Ends With**
 
-Test whether a string ends with a substring.
+Determine whether a string ends with a substring.
 
 - `$string` is the input string.
 - `$search` is a string representing the value to search for.
@@ -191,7 +191,7 @@ If the `search` string is not found, this method will return *-1*.
 
 **Is String**
 
-Determine if the value is a string.
+Determine whether the value is a string.
 
 - `$value` is the value to test.
 
@@ -239,7 +239,7 @@ Limit a string to a specified number of bytes.
 
 - `$string` is the input string.
 - `$limit` is a number representing the number of bytes to split the string after.
-- `$append` is a string representing the value to append if the string is split, and will default to *"..*".
+- `$append` is a string representing the value to append if the string is split, and will default to "*…*".
 
 ```php
 $limited = Str::limit($string, $limit, $append);
@@ -473,7 +473,7 @@ $start = Str::start($string, $search);
 
 **Starts With**
 
-Test whether a string begins with a substring.
+Determine whether a string begins with a substring.
 
 - `$string` is the input string.
 - `$search` is a string representing the value to search for.

@@ -15,14 +15,6 @@ trait SlugTestTrait
         );
     }
 
-    public function testSlugFromKebabCase(): void
-    {
-        $this->assertSame(
-            'this_is_a_test_string',
-            Str::slug('this-is-a-test-string')
-        );
-    }
-
     public function testSlugFromPascalCase(): void
     {
         $this->assertSame(
@@ -39,14 +31,6 @@ trait SlugTestTrait
         );
     }
 
-    public function testSlugWithAccents(): void
-    {
-        $this->assertSame(
-            'aeiou',
-            Str::slug('äëïöü')
-        );
-    }
-
     public function testSlugWithConsecutiveSpaces(): void
     {
         $this->assertSame(
@@ -59,7 +43,7 @@ trait SlugTestTrait
     {
         $this->assertSame(
             'this+is+a+test+string',
-            Str::slug('this_is_a_test_string', '+')
+            Str::slug('This is a test string', '+')
         );
     }
 

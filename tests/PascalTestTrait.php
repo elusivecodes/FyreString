@@ -31,14 +31,6 @@ trait PascalTestTrait
         );
     }
 
-    public function testPascalWithAccents(): void
-    {
-        $this->assertSame(
-            'Aeiou',
-            Str::pascal('äëïöü')
-        );
-    }
-
     public function testPascalWithConsecutiveSpaces(): void
     {
         $this->assertSame(

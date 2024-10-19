@@ -6,13 +6,17 @@ namespace Fyre\Utility;
 use function array_keys;
 use function array_shift;
 use function array_values;
+use function ctype_lower;
 use function explode;
 use function htmlspecialchars;
 use function iconv;
+use function implode;
 use function is_string;
 use function lcfirst;
+use function preg_replace;
 use function random_int;
 use function setlocale;
+use function str_contains;
 use function str_ends_with;
 use function str_pad;
 use function str_repeat;
@@ -87,7 +91,7 @@ abstract class Str
     public const WHITESPACE_MASK = " \t\n\r\0\x0B";
 
     /**
-     * Return the contents of a string after the first occurrence of a substring.
+     * Get the contents of a string after the first occurrence of a substring.
      *
      * @param string $string The input string.
      * @param string $search The search string.
@@ -99,18 +103,15 @@ abstract class Str
             return $string;
         }
 
-        $position = static::indexOf($string, $search);
+        $position = strpos($string, $search);
 
-        return $position < 0 ?
-            $string :
-            static::slice(
-                $string,
-                $position + static::length($search)
-            );
+        return $position !== false ?
+            substr($string, $position + strlen($search)) :
+            $string;
     }
 
     /**
-     * Return the contents of a string after the last occurrence of a substring.
+     * Get the contents of a string after the last occurrence of a substring.
      *
      * @param string $string The input string.
      * @param string $search The search string.
@@ -122,18 +123,15 @@ abstract class Str
             return '';
         }
 
-        $position = static::lastIndexOf($string, $search);
+        $position = strrpos($string, $search);
 
-        return $position < 0 ?
-            $string :
-            static::slice(
-                $string,
-                $position + static::length($search)
-            );
+        return $position !== false ?
+            substr($string, $position + strlen($search)) :
+            $string;
     }
 
     /**
-     * Return the contents of a string before the first occurrence of a substring.
+     * Get the contents of a string before the first occurrence of a substring.
      *
      * @param string $string The input string.
      * @param string $search The search string.
@@ -145,15 +143,11 @@ abstract class Str
             return '';
         }
 
-        $result = strstr($string, $search, true);
-
-        return $result ?
-            $result :
-            '';
+        return strstr($string, $search, true) ?: '';
     }
 
     /**
-     * Return the contents of a string before the last occurrence of a substring.
+     * Get the contents of a string before the last occurrence of a substring.
      *
      * @param string $string The input string.
      * @param string $search The search string.
@@ -165,15 +159,11 @@ abstract class Str
             return $string;
         }
 
-        $position = static::lastIndexOf($string, $search);
+        $position = strrpos($string, $search);
 
-        return $position < 0 ?
-            '' :
-            static::slice(
-                $string,
-                0,
-                $position
-            );
+        return $position !== false ?
+            substr($string, 0, $position) :
+            '';
     }
 
     /**
@@ -184,9 +174,7 @@ abstract class Str
      */
     public static function camel(string $string): string
     {
-        return lcfirst(
-            static::pascal($string)
-        );
+        return lcfirst(static::pascal($string));
     }
 
     /**
@@ -197,9 +185,7 @@ abstract class Str
      */
     public static function capitalize(string $string): string
     {
-        return ucfirst(
-            static::lower($string)
-        );
+        return ucfirst(strtolower($string));
     }
 
     /**
@@ -215,7 +201,7 @@ abstract class Str
     }
 
     /**
-     * Test whether a string contains a substring.
+     * Determine whether a string contains a substring.
      *
      * @param string $string The input string.
      * @param string $search The search string.
@@ -223,11 +209,11 @@ abstract class Str
      */
     public static function contains(string $string, string $search): bool
     {
-        return static::indexOf($string, $search) >= 0;
+        return str_contains($string, $search);
     }
 
     /**
-     * Test whether a string contains all substrings.
+     * Determine whether a string contains all substrings.
      *
      * @param string $string The input string.
      * @param array $searches The search strings.
@@ -236,7 +222,7 @@ abstract class Str
     public static function containsAll(string $string, array $searches): bool
     {
         foreach ($searches as $search) {
-            if (!static::contains($string, $search)) {
+            if (!str_contains($string, $search)) {
                 return false;
             }
         }
@@ -245,7 +231,7 @@ abstract class Str
     }
 
     /**
-     * Test whether a string contains any substring.
+     * Determine whether a string contains any substring.
      *
      * @param string $string The input string.
      * @param array $searches The search strings.
@@ -254,7 +240,7 @@ abstract class Str
     public static function containsAny(string $string, array $searches): bool
     {
         foreach ($searches as $search) {
-            if (static::contains($string, $search)) {
+            if (str_contains($string, $search)) {
                 return true;
             }
         }
@@ -271,13 +257,13 @@ abstract class Str
      */
     public static function end(string $string, string $search): string
     {
-        return static::endsWith($string, $search) ?
+        return str_ends_with($string, $search) ?
             $string :
             $string.$search;
     }
 
     /**
-     * Test whether a string ends with a substring.
+     * Determine whether a string ends with a substring.
      *
      * @param string $string The input string.
      * @param string $search The search string.
@@ -322,7 +308,7 @@ abstract class Str
     }
 
     /**
-     * Determine if the value is a string.
+     * Determine whether the value is a string.
      *
      * @param mixed $value The value to test.
      * @return bool TRUE if the value is a string, otherwise FALSE.
@@ -379,10 +365,10 @@ abstract class Str
      * @param string $append The substring to append if the string is split.
      * @return string The split string.
      */
-    public static function limit(string $string, int $limit = 100, string $append = '...'): string
+    public static function limit(string $string, int $limit = 100, string $append = '…'): string
     {
-        return static::length($string) > $limit ?
-            static::slice($string, 0, $limit).$append :
+        return strlen($string) > $limit ?
+            substr($string, 0, $limit).$append :
             $string;
     }
 
@@ -421,7 +407,7 @@ abstract class Str
      */
     public static function padEnd(string $string, int $length, string $padding = ' '): string
     {
-        return static::pad($string, $length, $padding, static::PAD_RIGHT);
+        return str_pad($string, $length, $padding, STR_PAD_RIGHT);
     }
 
     /**
@@ -434,7 +420,7 @@ abstract class Str
      */
     public static function padStart(string $string, int $length, string $padding = ' '): string
     {
-        return static::pad($string, $length, $padding, static::PAD_LEFT);
+        return str_pad($string, $length, $padding, STR_PAD_LEFT);
     }
 
     /**
@@ -445,13 +431,10 @@ abstract class Str
      */
     public static function pascal(string $string): string
     {
-        return static::replace(
-            static::title(
-                static::preFormatCase($string)
-            ),
-            ' ',
-            ''
-        );
+        $words = explode(' ', str_replace(['-', '_'], ' ', $string));
+        $words = array_map(fn(string $word): string => ucfirst($word), $words);
+
+        return implode('', $words);
     }
 
     /**
@@ -463,7 +446,7 @@ abstract class Str
      */
     public static function random(int $length = 16, string $chars = self::ALPHANUMERIC): string
     {
-        $max = static::length($chars) - 1;
+        $max = strlen($chars) - 1;
 
         $output = '';
         while ($length-- > 0) {
@@ -513,12 +496,12 @@ abstract class Str
         }
 
         $offset = 0;
-        $length = static::length($search);
+        $length = strlen($search);
 
-        while (($position = static::indexOf($string, $search, $offset)) >= 0) {
+        while (($position = strpos($string, $search, $offset)) !== false) {
             $replace = array_shift($replacements) ?? '';
-            $string = static::replaceAt($string, $replace, $position, $length);
-            $offset = $position + static::length($replace);
+            $string = substr_replace($string, $replace, $position, $length);
+            $offset = $position + strlen($replace);
         }
 
         return $string;
@@ -568,16 +551,11 @@ abstract class Str
             return $string;
         }
 
-        $position = static::indexOf($string, $search);
+        $position = strpos($string, $search);
 
-        return $position < 0 ?
-            $string :
-            static::replaceAt(
-                $string,
-                $replace,
-                $position,
-                static::length($search)
-            );
+        return $position !== false ?
+            substr_replace($string, $replace, $position, strlen($search)) :
+            $string;
     }
 
     /**
@@ -594,16 +572,11 @@ abstract class Str
             return $string;
         }
 
-        $position = static::lastIndexOf($string, $search);
+        $position = strrpos($string, $search);
 
-        return $position < 0 ?
-            $string :
-            static::replaceAt(
-                $string,
-                $replace,
-                $position,
-                static::length($search)
-            );
+        return $position !== false ?
+            substr_replace($string, $replace, $position, strlen($search)) :
+            $string;
     }
 
     /**
@@ -650,15 +623,13 @@ abstract class Str
      */
     public static function slug(string $string, string $delimiter = '_'): string
     {
-        return static::lower(
-            static::replace(
-                static::preFormatCase(
-                    $string
-                ),
-                ' ',
-                $delimiter
-            )
-        );
+        if (ctype_lower($string)) {
+            return $string;
+        }
+
+        $string = preg_replace('/\s+/u', '', ucwords($string));
+
+        return strtolower(preg_replace('/(.)(?=[A-Z])/u', '$1'.$delimiter, $string));
     }
 
     /**
@@ -694,13 +665,13 @@ abstract class Str
      */
     public static function start(string $string, string $search): string
     {
-        return static::startsWith($string, $search) ?
+        return str_starts_with($string, $search) ?
             $string :
             $search.$string;
     }
 
     /**
-     * Test whether a string begins with a substring.
+     * Determine whether a string begins with a substring.
      *
      * @param string $string The input string.
      * @param string $search The search string.
@@ -723,9 +694,7 @@ abstract class Str
      */
     public static function title(string $string): string
     {
-        return ucwords(
-            static::lower($string)
-        );
+        return ucwords(strtolower($string));
     }
 
     /**
@@ -795,30 +764,5 @@ abstract class Str
     public static function upper(string $string): string
     {
         return strtoupper($string);
-    }
-
-    /**
-     * Pre-format a string for case conversion.
-     *
-     * @param string $string The input string.
-     * @return string The formatted string.
-     */
-    protected static function preFormatCase(string $string): string
-    {
-        return static::trim(
-            preg_replace(
-                [
-                    '/([A-Z])/',
-                    '/[_-]/',
-                    '/\s+/',
-                ],
-                [
-                    ' $1',
-                    ' ',
-                    ' ',
-                ],
-                static::transliterate($string)
-            )
-        );
     }
 }

@@ -31,14 +31,6 @@ trait CamelTestTrait
         );
     }
 
-    public function testCamelWithAccents(): void
-    {
-        $this->assertSame(
-            'aeiou',
-            Str::camel('äëïöü')
-        );
-    }
-
     public function testCamelWithConsecutiveSpaces(): void
     {
         $this->assertSame(

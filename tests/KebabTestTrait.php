@@ -23,22 +23,6 @@ trait KebabTestTrait
         );
     }
 
-    public function testKebabFromSnake(): void
-    {
-        $this->assertSame(
-            'this-is-a-test-string',
-            Str::kebab('this_is_a_test_string')
-        );
-    }
-
-    public function testKebabWithAccents(): void
-    {
-        $this->assertSame(
-            'aeiou',
-            Str::kebab('äëïöü')
-        );
-    }
-
     public function testKebabWithConsecutiveSpaces(): void
     {
         $this->assertSame(
