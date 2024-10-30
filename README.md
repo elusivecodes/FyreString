@@ -457,7 +457,7 @@ Split a string by a specified delimiter.
 - `$limit` is a number representing the maximum number of substrings to return, and will default to *PHP_INT_MAX*.
 
 ```php
-$split = Str::split($string, $delimiter);
+$split = Str::split($string, $delimiter, $limit);
 ```
 
 **Start**
