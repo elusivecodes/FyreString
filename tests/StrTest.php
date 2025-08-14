@@ -3,7 +3,11 @@ declare(strict_types=1);
 
 namespace Tests;
 
+use Fyre\Utility\Str;
+use Fyre\Utility\Traits\MacroTrait;
 use PHPUnit\Framework\TestCase;
+
+use function class_uses;
 
 final class StrTest extends TestCase
 {
@@ -53,4 +57,12 @@ final class StrTest extends TestCase
     use TrimStartTestTrait;
     use TrimTestTrait;
     use UpperTestTrait;
+
+    public function testMacroable(): void
+    {
+        $this->assertContains(
+            MacroTrait::class,
+            class_uses(Str::class)
+        );
+    }
 }

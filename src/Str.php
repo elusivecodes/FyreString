@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Fyre\Utility;
 
+use Fyre\Utility\Traits\MacroTrait;
+
 use function array_keys;
 use function array_shift;
 use function array_values;
@@ -56,6 +58,8 @@ use const STR_PAD_RIGHT;
  */
 abstract class Str
 {
+    use MacroTrait;
+
     public const ALPHA = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYXZ';
 
     public const ALPHANUMERIC = self::ALPHA.self::NUMERIC;
