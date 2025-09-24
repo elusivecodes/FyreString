@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Fyre\Utility;
 
-use Fyre\Utility\Traits\MacroTrait;
+use Fyre\Utility\Traits\StaticMacroTrait;
 
 use function array_keys;
 use function array_shift;
@@ -58,7 +58,7 @@ use const STR_PAD_RIGHT;
  */
 abstract class Str
 {
-    use MacroTrait;
+    use StaticMacroTrait;
 
     public const ALPHA = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYXZ';
 
